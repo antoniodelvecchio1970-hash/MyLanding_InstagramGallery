@@ -158,10 +158,14 @@ body {
 /* ================= 3-LINE HAMBURGER MORPHING BUTTON ================= */
 .menu-toggle-btn {
   will-change: transform;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 .menu-bar {
   transform-origin: center;
   will-change: transform, opacity;
+  pointer-events: none;
 }
 .menu-toggle-btn:not(.is-active):hover .menu-bar-2 {
   transform: translateX(-3px);

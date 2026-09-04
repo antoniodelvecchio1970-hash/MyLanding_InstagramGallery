@@ -453,6 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuOverlay) {
     // Initial state: hidden off-screen to the top
     gsap.set(menuOverlay, {
+      display: 'none',
       autoAlpha: 0,
       yPercent: -100
     });
@@ -466,28 +467,35 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggleBtn.classList.add('is-active');
         menuToggleBtn.setAttribute('aria-expanded', 'true');
       }
+      menuOverlay.classList.remove('hidden', 'invisible', 'opacity-0', 'pointer-events-none');
+      menuOverlay.classList.add('pointer-events-auto');
       menuOverlay.setAttribute('aria-hidden', 'false');
-      menuOverlay.classList.remove('pointer-events-none');
 
       // Halt scroll behind overlay
       lenis.stop();
 
+      // Kill previous tweens if any
+      gsap.killTweensOf([menuOverlay, menuNavItems, menuMetaCol]);
+
       // GSAP Architectural Curtain Timeline
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-      tl.set(menuOverlay, { autoAlpha: 1 })
-        .to(menuOverlay, {
+
+      tl.set(menuOverlay, { display: 'flex', autoAlpha: 1 })
+        .fromTo(menuOverlay, {
+          yPercent: -100
+        }, {
           yPercent: 0,
-          duration: 0.65,
+          duration: 0.55,
           ease: "power4.inOut"
         })
         .fromTo(menuNavItems, {
-          y: 45,
+          y: 40,
           opacity: 0
         }, {
           y: 0,
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.07,
+          duration: 0.45,
+          stagger: 0.06,
           ease: "power3.out"
         }, "-=0.25")
         .fromTo(menuMetaCol, {
@@ -496,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, {
           y: 0,
           opacity: 1,
-          duration: 0.45,
+          duration: 0.4,
           ease: "power2.out"
         }, "-=0.35");
     };
@@ -511,51 +519,60 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       menuOverlay.setAttribute('aria-hidden', 'true');
       menuOverlay.classList.add('pointer-events-none');
+      menuOverlay.classList.remove('pointer-events-auto');
+
+      gsap.killTweensOf([menuOverlay, menuNavItems, menuMetaCol]);
 
       const tl = gsap.timeline({
         defaults: { ease: "power3.in" },
         onComplete: () => {
-          gsap.set(menuOverlay, { autoAlpha: 0, yPercent: -100 });
+          gsap.set(menuOverlay, { autoAlpha: 0, yPercent: -100, display: 'none' });
+          menuOverlay.classList.add('hidden', 'invisible', 'opacity-0');
           lenis.start();
           if (typeof onClosed === 'function') onClosed();
         }
       });
 
       tl.to(menuNavItems, {
-        y: -25,
+        y: -20,
         opacity: 0,
-        duration: 0.22,
+        duration: 0.18,
         stagger: 0.02
-      })
+      }, 0)
       .to(menuMetaCol, {
         opacity: 0,
-        duration: 0.18
-      }, "-=0.15")
+        duration: 0.15
+      }, 0)
       .to(menuOverlay, {
         yPercent: -100,
-        duration: 0.55,
+        duration: 0.4,
         ease: "power4.inOut"
-      }, "-=0.1");
+      }, 0.08);
+    };
+
+    // Global hooks for bulletproof touch & onclick invocation
+    window.toggleMenu = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+
+    window.closeMenu = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      closeMenu();
     };
 
     // Toggle button handler
     if (menuToggleBtn) {
-      menuToggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (isMenuOpen) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      });
+      menuToggleBtn.addEventListener('click', window.toggleMenu);
     }
 
     // Overlay Close button handler
     if (menuOverlayCloseBtn) {
-      menuOverlayCloseBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeMenu();
-      });
+      menuOverlayCloseBtn.addEventListener('click', window.closeMenu);
     }
 
     // Brand emblem in overlay scrolls to top and closes

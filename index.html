@@ -43,13 +43,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 
 <body class="antialiased selection:bg-white selection:text-black">
 
   <!-- ================= FULLSCREEN EDITORIAL NAVIGATION OVERLAY ================= -->
-  <div id="menu-overlay" class="fixed inset-0 z-50 w-full h-[100dvh] bg-[#070707] flex flex-col justify-between px-6 sm:px-8 lg:px-20 py-6 sm:py-8 overflow-hidden pointer-events-none opacity-0 invisible" aria-hidden="true">
+  <div id="menu-overlay" class="hidden fixed inset-0 z-50 w-full h-[100dvh] bg-[#070707] flex flex-col justify-between px-6 sm:px-8 lg:px-20 py-6 sm:py-8 overflow-hidden pointer-events-none opacity-0 invisible" aria-hidden="true">
     
     <!-- Subtle Ambient Architectural Vignette -->
     <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_80%_15%,rgba(226,160,102,0.05),transparent_70%)]"></div>
@@ -70,9 +70,9 @@
 
       <!-- Close Button Right -->
       <button id="menu-overlay-close-btn" aria-label="Close Navigation Menu"
-        class="group flex items-center space-x-3 text-white focus:outline-none cursor-pointer py-2 -mr-2">
+        class="group flex items-center space-x-3 text-white focus:outline-none cursor-pointer py-2 -mr-2 select-none touch-manipulation">
         <span class="text-[10px] font-mono tracking-widest text-neutral-400 group-hover:text-white uppercase transition-colors">CHIUDI</span>
-        <div class="w-6 h-6 relative flex items-center justify-center">
+        <div class="w-6 h-6 relative flex items-center justify-center pointer-events-none">
           <span class="absolute block w-5 h-[1.5px] bg-white rounded-full transform rotate-45 transition-transform duration-300 group-hover:rotate-90"></span>
           <span class="absolute block w-5 h-[1.5px] bg-white rounded-full transform -rotate-45 transition-transform duration-300 group-hover:-rotate-90"></span>
         </div>
@@ -211,10 +211,10 @@
 
         <!-- Right Menu Toggle Icon (3 Lines) -->
         <button id="menu-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false"
-          class="menu-toggle-btn text-white focus:outline-none p-2 -mr-2 flex flex-col justify-center items-end w-10 h-10 cursor-pointer group relative z-50">
-          <span class="menu-bar menu-bar-1 block w-6 h-[1.5px] bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"></span>
-          <span class="menu-bar menu-bar-2 block w-6 h-[1.5px] bg-white rounded-full my-[5px] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"></span>
-          <span class="menu-bar menu-bar-3 block w-6 h-[1.5px] bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"></span>
+          class="menu-toggle-btn text-white focus:outline-none flex flex-col justify-center items-end w-12 h-12 cursor-pointer group relative z-50 select-none touch-manipulation">
+          <span class="menu-bar menu-bar-1 block w-6 h-[1.5px] bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"></span>
+          <span class="menu-bar menu-bar-2 block w-6 h-[1.5px] bg-white rounded-full my-[5px] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"></span>
+          <span class="menu-bar menu-bar-3 block w-6 h-[1.5px] bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"></span>
         </button>
 
       </header>
@@ -990,7 +990,7 @@
     <span class="leading-none">TOP</span>
   </a>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=2.2"></script>
 </body>
 
 </html>
