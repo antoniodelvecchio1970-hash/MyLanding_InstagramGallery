@@ -86,10 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
       offsetX = (canvasWidth - drawWidth) / 2;
       offsetY = 0;
 
-      // On mobile portrait (canvasRatio < 0.8), shift monkeys slightly to the left (~3.5% of drawWidth)
-      // to give them more visibility and balance the composition
+      // On mobile portrait (canvasRatio < 0.8), shift monkeys to the left (~7.8% of drawWidth)
+      // so both monkeys (mother and baby) are prominently visible and centered on mobile viewports
       if (canvasRatio < 0.8) {
-        offsetX -= drawWidth * 0.035;
+        offsetX -= drawWidth * 0.078;
       }
     }
 
