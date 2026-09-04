@@ -85,6 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
       drawHeight = canvasHeight;
       offsetX = (canvasWidth - drawWidth) / 2;
       offsetY = 0;
+
+      // On mobile portrait (canvasRatio < 0.8), shift monkeys slightly to the left (~3.5% of drawWidth)
+      // to give them more visibility and balance the composition
+      if (canvasRatio < 0.8) {
+        offsetX -= drawWidth * 0.035;
+      }
     }
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
