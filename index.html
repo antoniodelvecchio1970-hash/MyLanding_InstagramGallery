@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonio Del Vecchio — Senior Art Director</title>
+  <meta name="description" content="Visual Identity, Spatial Systems & Creative Direction by Antonio Del Vecchio.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            heroDark: '#0A0A0A',
+            lightBg: '#FFFFFF',
+            accentDark: '#121212',
+            mutedGray: '#888888',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+          letterSpacing: {
+            ultra: '0.25em',
+            widest: '0.18em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased selection:bg-white selection:text-black">
+
+  <!-- ================= 1. ARCHITECTURAL CANVAS SEQUENCE HERO SECTION (250VH STICKY PIN) ================= -->
+  <div class="hero-sequence-container relative w-full h-[250vh]">
+
+    <section
+      class="hero-sticky-container sticky top-0 left-0 w-full h-screen min-h-[560px] sm:min-h-[680px] flex flex-col justify-between px-6 sm:px-8 lg:px-20 py-6 sm:py-8 overflow-hidden group">
+
+      <!-- HERO CANVAS (59 FRAME SEQUENCE RENDERED AT 100% ORIGINAL VISUAL FIDELITY) -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+      <!-- TOP HEADER / OVERLAY NAVIGATION (Z-30) -->
+      <header class="w-full max-w-7xl mx-auto flex items-center justify-between z-30 pt-2 relative">
+
+        <!-- Minimalist Brand Emblem Left -->
+        <a href="#" aria-label="Home"
+          class="flex items-center space-x-2 text-white hover:opacity-80 transition-opacity">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3L2 21h20L12 3z" />
+          </svg>
+        </a>
+
+        <!-- Center Navigation Links -->
+        <nav
+          class="hidden md:flex items-center space-x-12 text-xs font-semibold tracking-widest uppercase text-white/90">
+          <a href="#capabilities" class="nav-link py-1">SERVICES</a>
+          <a href="#concepts" class="nav-link py-1">WORKS</a>
+          <a href="#about" class="nav-link py-1">ABOUT</a>
+          <a href="#contact" class="nav-link py-1">CONTACT</a>
+        </nav>
+
+        <!-- Right Menu Toggle Icon -->
+        <button aria-label="Toggle Menu" class="text-white focus:outline-none hover:opacity-80 transition-opacity">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+
+      </header>
+
+      <!-- HERO OVERLAY HEADLINE ("Design. Evolution. Impact.") WITH STATIONARY COLOR ROLL-OVER (Z-30) -->
+      <div id="hero" class="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center items-start z-30 relative">
+        <div class="space-y-6 sm:space-y-8">
+
+          <!-- H1 Headline (Preserved 500ms Apple Easing & Stationary Color Accents) -->
+          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1.05] select-none">
+            <span class="hero-line-1">Design.</span><br />
+            <span class="hero-line-2">Evolution.</span><br />
+            <span class="hero-line-3 font-normal">Impact.</span>
+          </h1>
+
+          <!-- Circular Arrow Action Button (Staggered Organic Entrance Reveal) -->
+          <div class="pt-2 hero-cta-reveal">
+            <a href="#capabilities" aria-label="Explore capabilities"
+              class="circle-cta-btn inline-flex items-center justify-center w-14 h-14 rounded-full border border-white/70 text-white backdrop-blur-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCROLL INDICATOR (Z-30) -->
+      <div class="w-full max-w-7xl mx-auto flex items-end justify-between pb-4 z-30 relative">
+        <div class="text-[10px] font-mono tracking-widest text-white/50 uppercase">
+          ANTONIO DEL VECCHIO — STUDIO 2026
+        </div>
+
+        <div class="flex flex-col items-center space-y-3 cursor-pointer">
+          <div class="w-[1px] h-8 bg-white/60 scroll-indicator-line"></div>
+          <span class="text-[10px] font-mono tracking-widest text-white/80 uppercase">SCROLL</span>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+
+  <!-- ================= 2. CAPABILITIES & EXPERTISE SECTION (400VH FULL-SCREEN IMMERSIVE PIN) ================= -->
+  <div id="capabilities" class="cap-pin-wrapper relative w-full h-[400vh] bg-[#0A0A0A] text-white">
+
+    <section
+      class="cap-sticky-container sticky top-0 left-0 w-full h-screen flex flex-col justify-between overflow-hidden">
+
+      <!-- FULL-SCREEN BACKGROUND IMAGES LAYER (DECREASING Z-INDEX STACK FOR NO HOLE TRANSPARENCY) -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <!-- Step 3 Image: Bottom Layer (z-10, opacity: 1) -->
+        <img src="assets/optimized/web.webp" onerror="this.src='assets/web.jpg'" alt="Web & Social Systems - Digital Ecosystem"
+          loading="lazy" decoding="async"
+          class="cap-img cap-img-3 absolute inset-0 w-full h-full object-cover z-10"
+          style="opacity: 1; transform: scale(1);" />
+
+        <!-- Step 2 Image: Middle Layer (z-20, opacity: 1) -->
+        <img src="assets/optimized/pack.webp" onerror="this.src='assets/pack.jpg'"
+          alt="Packaging Design & Structural Product Packaging"
+          loading="lazy" decoding="async"
+          class="cap-img cap-img-2 absolute inset-0 w-full h-full object-cover z-20"
+          style="opacity: 1; transform: scale(1);" />
+
+        <!-- Step 1 Image: Top Layer (z-30, opacity: 1) -->
+        <img src="assets/optimized/identity.webp" onerror="this.src='assets/identity.jpg'"
+          alt="Identità Visiva - Brand Identity Design"
+          loading="lazy" decoding="async"
+          class="cap-img cap-img-1 absolute inset-0 w-full h-full object-cover z-30"
+          style="opacity: 1; transform: scale(1);" />
+
+        <!-- Lightened Overlay for 30%+ Increased Visibility of Background Images -->
+        <div class="absolute inset-0 z-40 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none">
+        </div>
+        <div class="absolute inset-0 z-40 bg-black/5 pointer-events-none"></div>
+      </div>
+
+      <!-- OVERLAY COPY CONTENT (ALIGNED LEFT, Z-50) -->
+      <div
+        class="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center items-start z-50 relative px-6 sm:px-8 lg:px-20 py-12">
+        <div class="relative w-full max-w-2xl min-h-[220px] sm:min-h-[260px] flex flex-col justify-center">
+
+          <!-- State 1: Identità Visiva -->
+          <div class="cap-text-block cap-text-1 absolute inset-0 flex flex-col justify-center">
+            <span class="text-xs font-mono tracking-widest text-white/70 uppercase font-semibold">IDENTITÀ VISIVA</span>
+            <h3 class="text-3xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mt-2 mb-4 leading-[1.08]">
+              Renditi inconfondibile.</h3>
+            <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal">Creo
+              architetture di marca e linguaggi visivi capaci di dominare il mercato e azzerare l'anonimato.</p>
+          </div>
+
+          <!-- State 2: Packaging Design -->
+          <div
+            class="cap-text-block cap-text-2 absolute inset-0 flex flex-col justify-center opacity-0 pointer-events-none"
+            style="transform: translateY(40px) scale(0.95);">
+            <span class="text-xs font-mono tracking-widest text-white/70 uppercase font-semibold">PACKAGING
+              DESIGN</span>
+            <h3 class="text-3xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mt-2 mb-4 leading-[1.08]">
+              Conquista lo scaffale.</h3>
+            <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal">Dalla
+              materia al prestampa esecutivo: trasformo il tuo prodotto in un oggetto desiderabile ad alto valore
+              percepito.</p>
+          </div>
+
+          <!-- State 3: Web & Social System -->
+          <div
+            class="cap-text-block cap-text-3 absolute inset-0 flex flex-col justify-center opacity-0 pointer-events-none"
+            style="transform: translateY(40px) scale(0.95);">
+            <span class="text-xs font-mono tracking-widest text-white/70 uppercase font-semibold">WEB & SOCIAL
+              SYSTEM</span>
+            <h3 class="text-3xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mt-2 mb-4 leading-[1.08]">
+              Domina ogni schermo.</h3>
+            <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal">Progetto
+              ecosistemi digitali reattivi per garantire coerenza, continuità di marca e conversioni su tutti i
+              touchpoint.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM PROGRESS BAR -->
+      <div class="max-w-7xl mx-auto w-full z-50 px-6 sm:px-8 lg:px-20 pb-8 flex items-center justify-between relative">
+        <div class="w-full max-w-md bg-white/20 h-[2px] relative overflow-hidden rounded-full mr-6">
+          <div id="cap-progress" class="bg-white h-full w-0 transition-all duration-75"></div>
+        </div>
+        <div id="cap-counter" class="text-xs font-mono tracking-widest text-white/60 font-medium">
+          01 / 03
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+
+  <!-- ================= 3. INSTAGRAM STYLE PROJECT GALLERY SECTION ================= -->
+  <section id="concepts" class="bg-black text-white py-16 sm:py-20 lg:py-28 px-4 sm:px-8 lg:px-20 relative z-20">
+
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Instagram Profile Header -->
+      <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12 mb-12 border-b border-neutral-800 pb-12">
+        <!-- Avatar Circle with Motion Graphic Ring -->
+        <div class="w-24 h-24 md:w-32 md:h-32 rounded-full avatar-motion-ring p-[3px] flex-shrink-0 shadow-2xl">
+          <div class="relative z-10 w-full h-full rounded-full bg-black flex items-center justify-center border-2 border-black overflow-hidden">
+            <span class="text-2xl md:text-3xl font-extrabold tracking-tighter text-white">AV</span>
+          </div>
+        </div>
+
+        <!-- Profile Bio & Details -->
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+            <div class="flex items-center justify-center md:justify-start space-x-3">
+              <h2 class="text-xl sm:text-2xl font-bold tracking-tight">antoniodelvecchio</h2>
+              <svg class="w-5 h-5 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6.4-6.4 1.4 1.4-7.8 7.8z"/></svg>
+            </div>
+            <div class="flex items-center justify-center space-x-3">
+              <a href="#contact" class="px-5 py-1.5 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-semibold rounded-md transition-colors">Contatta</a>
+              <a href="#about" class="px-4 py-1.5 border border-neutral-700 hover:bg-neutral-800 text-white text-xs font-semibold rounded-md transition-colors">Bio</a>
+            </div>
+          </div>
+
+          <!-- Stats Bar: Animated Counters on Scroll (Simultaneous 1->13.027, 1->30, 1->360) -->
+          <div id="profile-stats-bar" class="flex justify-center md:justify-start space-x-8 text-xs sm:text-sm my-4 text-neutral-300 font-mono">
+            <div><span id="counter-days" class="font-bold text-white text-base">1</span> giorni</div>
+            <div><span id="counter-years" class="font-bold text-white text-base">1+</span> anni direzione</div>
+            <div><span id="counter-vision" class="font-bold text-white text-base">1°</span> visione di marca</div>
+          </div>
+
+          <!-- Bio Text: Skill "Creative Direction" (Location Removed) -->
+          <div class="text-xs sm:text-sm text-neutral-300 max-w-xl leading-relaxed">
+            <span class="font-semibold text-white">Antonio Del Vecchio</span> — Senior Art Director & Graphic Designer<br/>
+            Visual Identity • Structural Packaging • Creative Direction • Web Systems
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTAGRAM GRID 4 COLUMNS SEAMLESS (ZERO GAP / ZERO BORDERS) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 bg-black border-none overflow-hidden shadow-2xl">
+
+        <!-- CARD 01: ELEVE -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Élève Sculpting Youth"
+          data-category="EDITORIAL & BEAUTY"
+          data-caption="Scultura classica e flacone cosmetico di lusso in un layout editoriale minimale. Composizione pulita e coordinato cromatico d'ispirazione svizzera per un posizionamento di alta gamma."
+          data-specs="Adobe InDesign / Fogra51 / CMYK Offset"
+          data-img="assets/optimized/eleve.webp"
+          data-likes="1,842">
+          <img src="assets/optimized/eleve.webp" onerror="this.src='assets/1762959624251-019a7894-c476-70b1-9e75-9508aaed0192 Topaz Gigapixel 2x - Scala.jpg'"
+            alt="Élève Sculpting Youth" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.8k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>48</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 02: NEW TASTE BEEF -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="New Taste Beef Billboard"
+          data-category="OUTDOOR & BRANDING"
+          data-caption="Progettazione grafica per affissione grande formato 6x3 in contesto urbano. Food styling nitido e contrasto visivo ad elevata leggibilità."
+          data-specs="Photoshop CC / 300 DPI 1:1 / ISO Coated v2"
+          data-img="assets/optimized/AffissioneRender1.webp"
+          data-likes="1,209">
+          <img src="assets/optimized/AffissioneRender1.webp" onerror="this.src='assets/AffissioneRender1.jpg'"
+            alt="New Taste Beef Billboard" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.2k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>32</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 03: CAPRI PERFUME -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Capri in a Bottle"
+          data-category="LUXURY FRAGRANCE"
+          data-caption="Key visual per fragranza di lusso Paolo Fiorillo. L'iconico profilo dei Faraglioni di Capri si fonde con la purezza e le rifrazioni trasparenti del flacone."
+          data-specs="3D Rendering & Compositing / Color Grading / Luxury Packaging"
+          data-img="assets/optimized/AffissioneRenderCapri.webp"
+          data-likes="2,450">
+          <img src="assets/optimized/AffissioneRenderCapri.webp" onerror="this.src='assets/AffissioneRenderCapri.jpg'"
+            alt="Capri in a Bottle" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>2.4k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>89</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 04: XTR SAFETY FOOTWEAR -->
+        <article 
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="XTR Safety Footwear"
+          data-category="INDUSTRIAL PACKAGING"
+          data-caption="Packaging strutturale per calzature di sicurezza certificate S3 SRC. Grafica tecnica ad impatto visivo immediato su cartone accoppiato da 1.8mm."
+          data-specs="Fustella Strutturale / Cartone 1.8mm / CMYK + Pantone"
+          data-img="assets/optimized/xtr.webp"
+          data-likes="980">
+          <img src="assets/optimized/xtr.webp" onerror="this.src='assets/xtr.jpg'"
+            alt="XTR Safety Footwear" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>980</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>19</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 05: ACCADEMIA MUGNANO -->
+        <article 
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Accademia Mugnano Display"
+          data-category="POINT OF SALE (POS)"
+          data-caption="Espositore da banco e linea packaging per serie crêpiere. Struttura cartotecnica studiata per la massima resa visiva nel punto vendita retail."
+          data-specs="Cartotecnica POS / Fustella da Banco / Stampa Esecutiva"
+          data-img="assets/optimized/mugnano.webp"
+          data-likes="1,120">
+          <img src="assets/optimized/mugnano.webp" onerror="this.src='assets/mugnano.jpg'"
+            alt="Accademia Mugnano Display" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.1k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>27</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 06: GUERRI BROCHURE -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Guerri Caldaie e Infissi"
+          data-category="CORPORATE EDITORIAL"
+          data-caption="Monografia aziendale 21x28cm su carta Fedrigoni Arena. Layout e tipografia svizzera rigorosa per comunicare sostenibilità ed efficienza."
+          data-specs="Carta Fedrigoni Arena / Griglia Svizzera / Brossura"
+          data-img="assets/optimized/GuerriBrochure21x28Stampa-6.webp"
+          data-likes="1,630">
+          <img src="assets/optimized/GuerriBrochure21x28Stampa-6.webp" onerror="this.src='assets/GuerriBrochure21x28Stampa-6.jpg'"
+            alt="Guerri Caldaie e Infissi" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.6k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>41</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 07: BRAND IDENTITY -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Brand Identity System"
+          data-category="BRAND SYSTEM"
+          data-caption="Sistema di identità visiva coordinata e brand guidelines. Definizione delle regole tipografiche, cromatiche e applicative per un marchio distintivo."
+          data-specs="Vector Master / Styleguide / Corporate Identity"
+          data-img="assets/optimized/identity.webp"
+          data-likes="2,100">
+          <img src="assets/optimized/identity.webp" onerror="this.src='assets/identity.jpg'"
+            alt="Brand Identity System" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>2.1k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>63</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 08: PACKAGING -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Structural Packaging"
+          data-category="PACKAGING DESIGN"
+          data-caption="Packaging di prodotto con finiture materiche speciali. Studio delle volumetrie e sviluppo dei file esecutivi di prestampa."
+          data-specs="Packaging Esecutivo / Nobilitazioni / Prestampa Offset"
+          data-img="assets/optimized/pack.webp"
+          data-likes="1,490">
+          <img src="assets/optimized/pack.webp" onerror="this.src='assets/pack.jpg'"
+            alt="Structural Packaging" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.4k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>35</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 09: DIGITAL SYSTEMS -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Web & Social Systems"
+          data-category="DIGITAL SYSTEMS"
+          data-caption="Design d'interfaccia UI/UX per ecosistema digitale reattivo. Coerenza visiva e continuità di marca garantita su tutti i dispositivi."
+          data-specs="UI/UX Design / Grid System / Social Media Kit"
+          data-img="assets/optimized/web.webp"
+          data-likes="1,750">
+          <img src="assets/optimized/web.webp" onerror="this.src='assets/web.jpg'"
+            alt="Web & Social Systems" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.7k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>52</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 10: ELEVE -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Élève Sculpting Youth"
+          data-category="EDITORIAL & BEAUTY"
+          data-caption="Scultura classica e flacone cosmetico di lusso in un layout editoriale minimale. Composizione pulita e coordinato cromatico d'ispirazione svizzera per un posizionamento di alta gamma."
+          data-specs="Adobe InDesign / Fogra51 / CMYK Offset"
+          data-img="assets/optimized/eleve.webp"
+          data-likes="1,842">
+          <img src="assets/optimized/eleve.webp" onerror="this.src='assets/1762959624251-019a7894-c476-70b1-9e75-9508aaed0192 Topaz Gigapixel 2x - Scala.jpg'"
+            alt="Élève Sculpting Youth" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.8k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>48</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 11: NEW TASTE BEEF -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="New Taste Beef Billboard"
+          data-category="OUTDOOR & BRANDING"
+          data-caption="Progettazione grafica per affissione grande formato 6x3 in contesto urbano. Food styling nitido e contrasto visivo ad elevata leggibilità."
+          data-specs="Photoshop CC / 300 DPI 1:1 / ISO Coated v2"
+          data-img="assets/optimized/AffissioneRender1.webp"
+          data-likes="1,209">
+          <img src="assets/optimized/AffissioneRender1.webp" onerror="this.src='assets/AffissioneRender1.jpg'"
+            alt="New Taste Beef Billboard" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>1.2k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>32</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 12: CAPRI IN A BOTTLE -->
+        <article
+          class="editorial-card group relative aspect-square overflow-hidden bg-black cursor-pointer border-none"
+          data-title="Capri in a Bottle"
+          data-category="LUXURY FRAGRANCE"
+          data-caption="Key visual per fragranza di lusso Paolo Fiorillo. L'iconico profilo dei Faraglioni di Capri si fonde con la purezza e le rifrazioni trasparenti del flacone."
+          data-specs="3D Rendering & Compositing / Color Grading / Luxury Packaging"
+          data-img="assets/optimized/AffissioneRenderCapri.webp"
+          data-likes="2,450">
+          <img src="assets/optimized/AffissioneRenderCapri.webp" onerror="this.src='assets/AffissioneRenderCapri.jpg'"
+            alt="Capri in a Bottle" loading="lazy" decoding="async"
+            class="editorial-card-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6 text-white text-xs font-semibold font-mono">
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>2.4k</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              <span>89</span>
+            </span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= 3.5. ABOUT & CREATIVE PHILOSOPHY SECTION ================= -->
+  <section id="about" class="bg-[#0A0A0A] text-white py-20 sm:py-24 px-6 sm:px-8 lg:px-20 relative z-20 border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- MANIFESTO STATEMENT — full width, large type -->
+      <p class="text-[clamp(22px,3.5vw,42px)] font-light leading-[1.35] tracking-tight text-white mb-16" style="max-width:100%;">
+        Il design non è decorazione.<br>
+        È <strong class="font-black">architettura</strong> del significato. Un sistema che <strong class="font-black">comunica</strong> prima ancora<br>
+        che il tuo cliente legga una sola parola.
+      </p>
+
+      <!-- HORIZONTAL RULE -->
+      <div class="border-t border-neutral-800 mb-16"></div>
+
+      <!-- TWO-COLUMN BIO -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div class="text-[13px] text-neutral-400 leading-[1.85] font-light space-y-5">
+          <p>Senior Art Director e Graphic Designer con oltre 30 anni di esperienza nella costruzione di identità visive per brand esigenti. Dalla grande distribuzione al lusso, dall'industria all'editoria.</p>
+          <p>Specializzato in brand identity, packaging strutturale, sistemi editoriali e direzione creativa. Ogni progetto nasce da un'analisi rigorosa del contesto competitivo.</p>
+        </div>
+        <div class="text-[13px] text-neutral-400 leading-[1.85] font-light space-y-5">
+          <p>Lavoro con Adobe Creative Cloud alla massima profondità tecnica: gestione colore Fogra51/ISO Coated v2, prestampa esecutiva, fustelle strutturali, architettura tipografica svizzera.</p>
+          <p>Un approccio metodico che trasforma la creatività in vantaggio competitivo misurabile. Basato a Milano, operativo a livello internazionale.</p>
+        </div>
+      </div>
+
+      <!-- STATS STRIP — bordered thirds -->
+      <div class="grid grid-cols-3 border-t border-neutral-800">
+
+        <div class="py-8 sm:py-12 pr-4 sm:pr-10 border-r border-neutral-800">
+          <span
+            class="about-counter block text-[clamp(40px,8vw,96px)] font-black leading-none tracking-tighter text-white"
+            data-target="30"
+            data-suffix="+"
+          >0</span>
+          <span class="block mt-3 text-[9px] sm:text-[10px] font-mono tracking-[0.22em] uppercase text-neutral-500">Anni di esperienza</span>
+        </div>
+
+        <div class="py-8 sm:py-12 px-4 sm:px-10 border-r border-neutral-800">
+          <span
+            class="about-counter block text-[clamp(40px,8vw,96px)] font-black leading-none tracking-tighter text-white"
+            data-target="200"
+            data-suffix="+"
+          >0</span>
+          <span class="block mt-3 text-[9px] sm:text-[10px] font-mono tracking-[0.22em] uppercase text-neutral-500">Progetti completati</span>
+        </div>
+
+        <div class="py-8 sm:py-12 pl-4 sm:pl-10">
+          <!-- Infinity symbol — not a counter -->
+          <span class="block text-[clamp(40px,8vw,96px)] font-black leading-none tracking-tighter text-white select-none">∞</span>
+          <span class="block mt-3 text-[9px] sm:text-[10px] font-mono tracking-[0.22em] uppercase text-neutral-500">Iterazioni per progetto</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+  /* ── COUNT-UP ANIMATION FOR ABOUT STATS ── */
+  (function () {
+    var counters = document.querySelectorAll('.about-counter');
+    var observed = false;
+
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1600; // ms
+      var startTime = null;
+
+      function easeOutExpo(t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      }
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var current = Math.floor(easeOutExpo(progress) * target);
+        el.textContent = current + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !observed) {
+            observed = true;
+            counters.forEach(function (el) { animateCounter(el); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      if (counters.length) io.observe(counters[0].closest('section') || counters[0]);
+    } else {
+      /* Fallback: animate immediately */
+      counters.forEach(function (el) { animateCounter(el); });
+    }
+  })();
+  </script>
+
+
+  <!-- ================= 4. INSTAGRAM STYLE LIGHTBOX MODAL ================= -->
+  <div id="concept-modal"
+    class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 ease-out flex items-center justify-center p-3 sm:p-6 lg:p-8 backdrop-blur-2xl bg-black/92">
+    
+    <!-- Modal Container -->
+    <div class="relative w-[96vw] max-w-7xl h-[90vh] lg:h-[86vh] bg-[#121212] text-white border border-neutral-700/80 rounded-none shadow-[0_0_80px_rgba(0,0,0,0.95)] overflow-hidden flex flex-col lg:flex-row">
+
+      <!-- Close Button -->
+      <button id="modal-close" aria-label="Close modal"
+        class="absolute top-4 right-4 z-50 text-neutral-300 hover:text-white transition-colors bg-black/70 hover:bg-black rounded-none p-2.5 border border-neutral-600/80 shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Left 72%: High-Res Photo Display Area -->
+      <div class="w-full lg:w-[72%] h-[55%] lg:h-full bg-[#050505] p-3 sm:p-6 overflow-hidden flex items-center justify-center relative select-none">
+        <img id="modal-img" src="" alt="Project Photo" class="max-w-full max-h-full object-contain rounded-none drop-shadow-2xl transition-transform duration-300" />
+      </div>
+
+      <!-- Right 28%: Instagram Post Meta & Minimal Caption Sidebar -->
+      <div class="w-full lg:w-[28%] h-[45%] lg:h-full flex flex-col justify-between bg-[#141414] border-t lg:border-t-0 lg:border-l border-neutral-800 p-6 overflow-y-auto">
+        
+        <!-- Post Header -->
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-neutral-800 mb-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-[2px]">
+                <div class="w-full h-full rounded-full bg-black flex items-center justify-center">
+                  <span class="text-xs font-bold text-white">AV</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center space-x-1.5">
+                  <span class="text-xs font-bold text-white tracking-wide">antoniodelvecchio</span>
+                  <svg class="w-3.5 h-3.5 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6.4-6.4 1.4 1.4-7.8 7.8z"/></svg>
+                </div>
+                <span id="modal-category" class="text-[10px] font-mono text-neutral-400"></span>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono text-neutral-500 uppercase">ARCHIVE</span>
+          </div>
+
+          <!-- Minimal Caption Body -->
+          <div class="space-y-3">
+            <h3 id="modal-title" class="text-lg font-bold text-white tracking-tight"></h3>
+            
+            <p id="modal-desc" class="text-xs text-neutral-300 leading-relaxed font-normal"></p>
+
+            <div class="pt-2">
+              <span class="text-[10px] font-mono text-neutral-400 block mb-1 uppercase font-semibold">SPECIFICHE TECNICHE:</span>
+              <p id="modal-specs" class="text-[11px] font-mono text-neutral-400 bg-neutral-900 p-2.5 rounded border border-neutral-800 leading-relaxed"></p>
+            </div>
+
+            <div class="pt-2 text-[11px] font-mono text-sky-400 space-x-1">
+              <span>#ArtDirection</span> <span>#GraphicDesign</span> <span>#Prepress</span> <span>#Branding</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post Action & Timestamp Bar -->
+        <div class="pt-4 border-t border-neutral-800 mt-6 space-y-3">
+          <div class="flex items-center justify-between text-neutral-300">
+            <div class="flex items-center space-x-4">
+              <svg class="w-6 h-6 hover:text-rose-500 transition-colors cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              <svg class="w-6 h-6 hover:text-white transition-colors cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              <svg class="w-6 h-6 hover:text-white transition-colors cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            </div>
+            <svg class="w-6 h-6 hover:text-white transition-colors cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+          </div>
+
+          <div class="text-xs font-semibold text-white">
+            Piace a <span id="modal-likes">1.2k</span> persone
+          </div>
+
+          <div class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+            AGOSTO 2026 • SELEZIONE UFFICIALE
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= 4.5. CONTACT FORM SECTION (MINIMALIST ITALIAN) ================= -->
+  <section class="bg-lightBg text-black py-20 px-6 sm:px-8 lg:px-20 relative z-20 border-t border-neutral-200">
+    <div class="max-w-7xl mx-auto bg-white border border-neutral-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+
+      <!-- Left Column: Visual Container -->
+      <div class="w-full h-full min-h-[320px] sm:min-h-[400px]">
+        <img src="assets/optimized/form.webp" onerror="this.src='assets/form.png'" alt="Get in Touch"
+          loading="lazy" decoding="async" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Right Column: Form Container -->
+      <div class="p-6 sm:p-12 lg:p-16 flex flex-col justify-center bg-white">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight mb-2">
+          Get in Touch
+        </h2>
+        <p class="text-sm text-neutral-500 max-w-md mb-8 leading-relaxed">
+          Che tu abbia una domanda su servizi, prezzi o nuovi sistemi di design, invia un messaggio diretto.
+        </p>
+
+        <form id="contact-form" novalidate>
+          <!-- Honeypot Trap Field (Invisible to human users) -->
+          <div class="sr-only" aria-hidden="true" style="display:none !important;">
+            <input type="text" name="b_website_hp" id="b_website_hp" tabindex="-1" value="" autocomplete="off">
+          </div>
+
+          <!-- Grid Row 1: Nome & Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="contact-name"
+                class="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">Nome *</label>
+              <input type="text" id="contact-name" name="name" required placeholder="Mario Rossi"
+                class="w-full border border-neutral-300 rounded-none px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-all">
+            </div>
+            <div>
+              <label for="contact-email"
+                class="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">Email *</label>
+              <input type="email" id="contact-email" name="email" required placeholder="mario@esempio.it"
+                class="w-full border border-neutral-300 rounded-none px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-all">
+            </div>
+          </div>
+
+          <!-- Grid Row 2: Azienda -->
+          <div class="mb-4">
+            <label for="contact-company"
+              class="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">Azienda</label>
+            <input type="text" id="contact-company" name="company" placeholder="Nome Azienda"
+              class="w-full border border-neutral-300 rounded-none px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-all">
+          </div>
+
+          <!-- Grid Row 3: Messaggio -->
+          <div class="mb-6">
+            <label for="contact-message"
+              class="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">Messaggio *</label>
+            <textarea id="contact-message" name="message" required rows="4" placeholder="Raccontami il tuo progetto..."
+              class="w-full border border-neutral-300 rounded-none px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-all resize-none"></textarea>
+          </div>
+
+          <!-- Feedback Status Banner -->
+          <div id="contact-feedback"
+            class="hidden mb-4 p-3 rounded-none text-xs font-semibold text-center tracking-wider uppercase"></div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="contact-submit-btn"
+            class="w-full bg-black text-white py-4 rounded-none font-bold text-xs tracking-widest uppercase hover:bg-neutral-800 transition-all duration-300 flex items-center justify-center space-x-2">
+            <span id="contact-btn-text">INVIA MESSAGGIO</span>
+            <svg id="contact-btn-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= 5. FOOTER (DARK MODE WITH TOP BUTTON) ================= -->
+  <footer id="contact" class="bg-heroDark text-white py-16 px-6 sm:px-8 lg:px-20 border-t border-neutral-800 relative z-20">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+
+      <div>
+        <h3 class="text-xl font-bold uppercase tracking-wider">ANTONIO DEL VECCHIO</h3>
+        <p class="text-xs text-neutral-400 mt-1">Senior Art Director & Graphic Designer — Napoli, Italia</p>
+      </div>
+
+      <div class="flex items-center space-x-8 text-xs font-bold tracking-widest uppercase text-neutral-300">
+        <a href="mailto:antonio@example.com" class="hover:text-white transition-colors">EMAIL</a>
+        <a href="#linkedin" class="hover:text-white transition-colors">LINKEDIN</a>
+        <a href="#behance" class="hover:text-white transition-colors">BEHANCE</a>
+      </div>
+
+      <div class="text-xs text-neutral-500 font-mono">
+        © 2026 ALL RIGHTS RESERVED
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FIXED SQUARE BACK TO TOP BUTTON -->
+  <a href="#" aria-label="Torna all'inizio"
+    class="fixed bottom-6 right-6 z-40 w-9 h-9 bg-transparent border border-white/60 hover:border-white/15 hover:border-[0.5px] text-white/80 hover:text-white/40 flex flex-col items-center justify-center font-mono text-[9px] tracking-tighter transition-all duration-300 rounded-none backdrop-blur-sm group">
+    <span class="text-[9px] leading-none mb-0.5 group-hover:-translate-y-0.5 transition-transform">↑</span>
+    <span class="leading-none">TOP</span>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

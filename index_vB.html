@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonio Del Vecchio — Senior Art Director</title>
+  <meta name="description" content="Visual Identity, Spatial Systems &amp; Creative Direction by Antonio Del Vecchio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--fg:#f5f5f5;--muted:#737373;--border:#222;--white:#fff;--black:#000;--font-sans:'Inter','Helvetica Neue',Arial,sans-serif;--font-mono:'Roboto Mono','Courier New',monospace}
+    html{scroll-behavior:smooth;background:var(--bg);color:var(--fg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;cursor:crosshair}
+    body{overflow-x:hidden}
+    ::selection{background:var(--fg);color:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .mono{font-family:var(--font-mono)}
+
+    /* NAV */
+    nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px 48px;mix-blend-mode:difference}
+    .nav-brand{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--white)}
+    .nav-links{display:flex;gap:48px;list-style:none}
+    .nav-links a{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white);position:relative;padding-bottom:2px}
+    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--white);transition:width .35s cubic-bezier(.76,0,.24,1)}
+    .nav-links a:hover::after{width:100%}
+    .nav-menu-btn{background:none;border:none;color:var(--white);cursor:crosshair;display:none}
+
+    /* HERO */
+    section.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 60px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;display:block}
+    .hero-title{font-size:clamp(72px,14vw,200px);font-weight:900;line-height:.88;letter-spacing:-.03em;text-transform:uppercase;color:var(--fg);margin-right:-.02em}
+    .hero-title .line-name{display:block;color:var(--white)}
+    .hero-title .line-role{display:block;font-weight:300;font-style:italic;font-size:clamp(38px,6vw,88px);color:var(--muted);letter-spacing:-.01em;margin-top:12px}
+    .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;margin-top:80px}
+    .hero-tagline{font-size:13px;font-weight:300;color:var(--muted);max-width:340px;line-height:1.7;letter-spacing:.02em}
+    .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .hero-scroll-line{width:1px;height:56px;background:var(--muted);animation:scrollPulse 2.2s ease-in-out infinite}
+    @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.6)}}
+    .hero-scroll span{font-family:var(--font-mono);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
+
+    /* SECTION LABEL */
+    .section-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:block}
+
+    /* CAPABILITIES */
+    section.capabilities{padding:140px 48px;border-bottom:1px solid var(--border)}
+    .cap-header{display:grid;grid-template-columns:1fr 2fr;gap:48px;margin-bottom:100px;align-items:end}
+    .cap-header h2{font-size:clamp(48px,7vw,96px);font-weight:900;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:var(--fg)}
+    .cap-header p{font-size:13px;color:var(--muted);line-height:1.8;max-width:440px;font-weight:300}
+    .cap-list{list-style:none}
+    .cap-item{display:grid;grid-template-columns:80px 1fr 1fr;gap:32px;align-items:start;padding:40px 0;border-top:1px solid var(--border)}
+    .cap-item:last-child{border-bottom:1px solid var(--border)}
+    .cap-num{font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:.12em;padding-top:4px}
+    .cap-name{font-size:clamp(22px,3vw,40px);font-weight:700;letter-spacing:-.02em;color:var(--fg);line-height:1.1}
+    .cap-desc{font-size:12px;color:var(--muted);line-height:1.75;font-weight:300;max-width:380px}
+
+    /* WORK */
+    section.work{padding:140px 48px;border-bottom:1px solid var(--border);position:relative}
+    .work-header{margin-bottom:80px}
+    .work-header h2{font-size:clamp(64px,10vw,140px);font-weight:900;letter-spacing:-.04em;text-transform:uppercase;line-height:.85;color:var(--fg);margin-top:20px}
+    .work-preview{position:fixed;pointer-events:none;z-index:200;width:320px;aspect-ratio:4/5;overflow:hidden;opacity:0;transition:opacity .25s ease;transform:translate(-50%,-60%) rotate(-1.5deg);filter:grayscale(100%)}
+    .work-preview.visible{opacity:1;filter:grayscale(0%);transition:opacity .25s ease,filter .4s ease}
+    .work-preview img{width:100%;height:100%;object-fit:cover}
+    .work-list{list-style:none}
+    .work-item{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--border);cursor:crosshair;transition:padding-left .35s cubic-bezier(.76,0,.24,1)}
+    .work-item:last-child{border-bottom:1px solid var(--border)}
+    .work-item:hover{padding-left:12px}
+    .work-item-num{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.14em}
+    .work-item-title{font-size:clamp(18px,2.5vw,32px);font-weight:700;letter-spacing:-.02em;color:var(--fg);line-height:1.1;transition:color .2s}
+    .work-item:hover .work-item-title{color:var(--white)}
+    .work-item-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+    /* LIGHTBOX */
+    #concept-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);opacity:0;transition:opacity .3s ease}
+    #concept-modal.open{display:flex;opacity:1}
+    .modal-inner{display:grid;grid-template-columns:1fr 1fr;max-width:1000px;width:100%;max-height:88vh;border:1px solid var(--border);overflow:hidden;background:#0f0f0f;position:relative}
+    .modal-img-wrap{overflow:hidden}
+    .modal-img-wrap img{width:100%;height:100%;object-fit:cover;filter:grayscale(40%);transition:filter .5s}
+    .modal-img-wrap:hover img{filter:grayscale(0%)}
+    .modal-body{padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;overflow-y:auto;border-left:1px solid var(--border)}
+    .modal-cat{font-family:var(--font-mono);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+    .modal-title{font-size:clamp(24px,3vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--fg);margin-bottom:24px}
+    .modal-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:40px}
+    .modal-specs-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-top:24px;border-top:1px solid var(--border)}
+    .modal-specs{font-family:var(--font-mono);font-size:11px;color:var(--muted);line-height:1.7;padding:16px;border:1px solid var(--border)}
+    .modal-close{position:absolute;top:20px;right:20px;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px;cursor:crosshair;transition:color .2s,border-color .2s}
+    .modal-close:hover{color:var(--fg);border-color:var(--fg)}
+    .modal-cta{margin-top:32px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:flex-end}
+    .modal-cta a{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg);display:flex;align-items:center;gap:10px;transition:gap .25s}
+    .modal-cta a:hover{gap:18px}
+
+    /* ABOUT */
+    section.about{padding:140px 48px;border-bottom:1px solid var(--border)}
+    .about-inner{display:grid;grid-template-columns:1fr 3fr;gap:0}
+    .about-left{padding-right:48px;border-right:1px solid var(--border)}
+    .about-left h2{font-size:clamp(48px,6vw,88px);font-weight:900;letter-spacing:-.04em;text-transform:uppercase;line-height:.88;color:var(--fg);margin-top:20px;writing-mode:vertical-rl;text-orientation:mixed}
+    .about-right{padding-left:64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .about-manifesto{grid-column:1/-1;font-size:clamp(22px,3vw,38px);font-weight:300;line-height:1.35;letter-spacing:-.01em;color:var(--fg);border-bottom:1px solid var(--border);padding-bottom:48px;margin-bottom:8px}
+    .about-manifesto strong{font-weight:900;color:var(--white)}
+    .about-col{font-size:13px;font-weight:300;color:var(--muted);line-height:1.85}
+    .about-col p+p{margin-top:20px}
+    .about-stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--border)}
+    .stat{padding:40px 0;border-right:1px solid var(--border);padding-right:40px}
+    .stat:last-child{border-right:none;padding-left:40px;padding-right:0}
+    .stat:not(:first-child){padding-left:40px}
+    .stat-num{font-size:clamp(40px,5vw,72px);font-weight:900;letter-spacing:-.04em;color:var(--fg);display:block;line-height:1}
+    .stat-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:10px;display:block}
+
+    /* CONTACT */
+    section.contact{padding:140px 48px;border-bottom:1px solid var(--border)}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+    .contact-left h2{font-size:clamp(48px,7vw,96px);font-weight:900;letter-spacing:-.04em;text-transform:uppercase;line-height:.88;color:var(--fg);margin-top:20px;margin-bottom:40px}
+    .contact-left p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.8;max-width:360px}
+    .contact-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(100%);transition:filter .5s;margin-top:40px}
+    .contact-img:hover{filter:grayscale(0%)}
+    .contact-form{display:flex;flex-direction:column;gap:0}
+    .field-group{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--border)}
+    .field-group.full{grid-template-columns:1fr}
+    .field{display:flex;flex-direction:column;border-right:1px solid var(--border)}
+    .field:last-child,.field-group.full .field{border-right:none}
+    .field label{font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:16px 0 8px;display:block}
+    .field input,.field textarea{background:transparent;border:none;color:var(--fg);font-family:var(--font-sans);font-size:14px;font-weight:300;padding:0 0 16px;outline:none;resize:none;width:100%}
+    .field input::placeholder,.field textarea::placeholder{color:var(--border)}
+    .field input:focus,.field textarea:focus{color:var(--white)}
+    .field-border-top{border-top:1px solid var(--border)}
+    #contact-feedback{display:none;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--border)}
+    .submit-row{display:flex;align-items:center;justify-content:space-between;padding-top:32px}
+    .submit-note{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .submit-btn{background:var(--fg);color:var(--bg);border:none;font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:16px 32px;cursor:crosshair;transition:background .25s,color .25s;display:flex;align-items:center;gap:12px}
+    .submit-btn:hover{background:var(--white);color:var(--black)}
+
+    /* FOOTER */
+    footer{padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:24px;border-top:1px solid var(--border)}
+    .footer-brand{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--fg)}
+    .footer-brand span{display:block;font-family:var(--font-mono);font-size:9px;font-weight:400;color:var(--muted);letter-spacing:.16em;margin-top:4px}
+    .footer-links{display:flex;gap:32px;justify-content:center;list-style:none}
+    .footer-links a{font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--fg)}
+    .footer-copy{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--muted);text-align:right}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav.site-nav{padding:20px 24px}
+      .nav-links{display:none}
+      .nav-menu-btn{display:block}
+      section.hero{padding:0 24px 48px}
+      section.capabilities,section.work,section.about,section.contact{padding:80px 24px}
+      .cap-header{grid-template-columns:1fr}
+      .cap-item{grid-template-columns:48px 1fr}
+      .cap-item .cap-desc{display:none}
+      .about-inner{grid-template-columns:1fr}
+      .about-left{border-right:none;border-bottom:1px solid var(--border);padding-bottom:32px;margin-bottom:32px;padding-right:0}
+      .about-left h2{writing-mode:horizontal-tb}
+      .about-right{padding-left:0;grid-template-columns:1fr}
+      .about-stats{grid-template-columns:1fr 1fr}
+      .contact-inner{grid-template-columns:1fr;gap:48px}
+      .field-group{grid-template-columns:1fr}
+      .field{border-right:none}
+      footer{grid-template-columns:1fr;text-align:center}
+      .footer-links{justify-content:center}
+      .footer-copy{text-align:center}
+      .work-preview{display:none}
+      .modal-inner{grid-template-columns:1fr}
+      .modal-body{border-left:none;border-top:1px solid var(--border)}
+    }
+    @media(max-width:600px){
+      .hero-title{font-size:clamp(52px,18vw,120px)}
+      .about-stats{grid-template-columns:1fr}
+      .stat{border-right:none;padding-left:0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Navigazione principale">
+    <div class="nav-brand">ADV</div>
+    <ul class="nav-links">
+      <li><a href="#capabilities">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
+        <line x1="0" y1="1" x2="22" y2="1" stroke="#f5f5f5" stroke-width="1.2"/>
+        <line x1="0" y1="13" x2="22" y2="13" stroke="#f5f5f5" stroke-width="1.2"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="hero-eyebrow">STUDIO 2026 — MILANO, ITALIA</span>
+      <h1 class="hero-title">
+        <span class="line-name">ANTONIO</span>
+        <span class="line-name">DEL VEC</span>
+        <span class="line-name">CHIO</span>
+        <span class="line-role">Art Direction &amp; Design Systems</span>
+      </h1>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-tagline">
+        Visual Identity, Packaging, Web Systems.<br>
+        Design. Evolution. Impact.
+      </p>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="capabilities" id="capabilities">
+    <div class="cap-header">
+      <div>
+        <span class="section-label">01 — Servizi</span>
+        <h2>Capabilities</h2>
+      </div>
+      <p>Architetture di marca, sistemi di identità visiva e produzione esecutiva per brand che non accettano il compromesso. Ogni output è progettato per dominare il proprio contesto.</p>
+    </div>
+    <ul class="cap-list">
+      <li class="cap-item">
+        <span class="cap-num mono">01</span>
+        <span class="cap-name">Identità Visiva</span>
+        <p class="cap-desc">Creo architetture di marca e linguaggi visivi capaci di dominare il mercato e azzerare l'anonimato. Brand system completi dalla strategia all'esecutivo.</p>
+      </li>
+      <li class="cap-item">
+        <span class="cap-num mono">02</span>
+        <span class="cap-name">Packaging Design</span>
+        <p class="cap-desc">Dalla materia al prestampa esecutivo: trasformo il tuo prodotto in un oggetto desiderabile ad alto valore percepito. Fustelle, cartotecnica strutturale, stampa offset.</p>
+      </li>
+      <li class="cap-item">
+        <span class="cap-num mono">03</span>
+        <span class="cap-name">Web &amp; Social System</span>
+        <p class="cap-desc">Progetto ecosistemi digitali reattivi per garantire coerenza, continuità di marca e conversioni su tutti i touchpoint. Design system scalabili e interfacce ad alto impatto.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="work-preview" id="work-preview" aria-hidden="true">
+      <img id="work-preview-img" src="" alt="" />
+    </div>
+    <div class="work-header">
+      <span class="section-label">02 — Selected Archive</span>
+      <h2>My<br>Concepts.</h2>
+    </div>
+    <ul class="work-list" id="work-list">
+      <li class="work-item"
+          data-title="Élève Sculpting Youth"
+          data-category="Editorial &amp; Beauty"
+          data-desc="Campagna editoriale e ADV cosmetica ad alto impatto visivo con fusione di scultura classica e coordinato di lusso."
+          data-specs="Adobe InDesign / Color Management Fogra51 / Prestampa Esecutivo CMYK"
+          data-img="assets/1762959624251-019a7894-c476-70b1-9e75-9508aaed0192 Topaz Gigapixel 2x - Scala.jpg">
+        <span class="work-item-num mono">01</span>
+        <span class="work-item-title">Élève Sculpting Youth</span>
+        <span class="work-item-cat">Editorial &amp; Beauty</span>
+      </li>
+      <li class="work-item"
+          data-title="New Taste Beef Billboard"
+          data-category="Outdoor &amp; Branding"
+          data-desc="Progettazione di affissione metropolitana 6x3 per brand di ristorazione con food styling e identità visiva coordinata."
+          data-specs="Adobe Photoshop CC / Risoluzione 300 DPI a scala 1:1 / Profilo ISO Coated v2"
+          data-img="assets/AffissioneRender1.jpg">
+        <span class="work-item-num mono">02</span>
+        <span class="work-item-title">New Taste Beef Billboard</span>
+        <span class="work-item-cat">Outdoor &amp; Branding</span>
+      </li>
+      <li class="work-item"
+          data-title="Capri in a Bottle"
+          data-category="Luxury Fragrance"
+          data-desc="Key visual e ADV outdoor per fragranza di lusso, evocando le atmosfere mediterranee e i faraglioni di Capri."
+          data-specs="3D Compositing / Color Grading Avanzato / Prestampa Offset Alta Definizione"
+          data-img="assets/AffissioneRenderCapri.jpg">
+        <span class="work-item-num mono">03</span>
+        <span class="work-item-title">Capri in a Bottle</span>
+        <span class="work-item-cat">Luxury Fragrance</span>
+      </li>
+      <li class="work-item"
+          data-title="XTR Safety Footwear"
+          data-category="Industrial Packaging"
+          data-desc="Packaging strutturale e ambientazione fotografica industriale per calzature di sicurezza certificate S3 SRC."
+          data-specs="Fustella personalizzata / Cartone accoppiato 1.8mm / Stampa Offset CMYK + Pantone"
+          data-img="assets/xtr.jpg">
+        <span class="work-item-num mono">04</span>
+        <span class="work-item-title">XTR Safety Footwear</span>
+        <span class="work-item-cat">Industrial Packaging</span>
+      </li>
+      <li class="work-item"
+          data-title="Accademia Mugnano Display"
+          data-category="Point of Sale"
+          data-desc="Progettazione espositore da banco e packaging per linea crêpiere con griglia modulare e grafica coordinata."
+          data-specs="Cartotecnica strutturale / Fustella espositore da banco / Prestampa esecutiva"
+          data-img="assets/mugnano.jpg">
+        <span class="work-item-num mono">05</span>
+        <span class="work-item-title">Accademia Mugnano Display</span>
+        <span class="work-item-cat">Point of Sale</span>
+      </li>
+      <li class="work-item"
+          data-title="Guerri Caldaie e Infissi"
+          data-category="Corporate Editorial"
+          data-desc="Monografia aziendale e brochure istituzionale 21x28cm per sistema infissi e riscaldamento ecosostenibile."
+          data-specs="Carta Fedrigoni Arena / Rilegatura brossura / Architettura tipografica svizzera"
+          data-img="assets/GuerriBrochure21x28Stampa-6.jpg">
+        <span class="work-item-num mono">06</span>
+        <span class="work-item-title">Guerri Caldaie e Infissi</span>
+        <span class="work-item-cat">Corporate Editorial</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="concept-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <div class="modal-inner">
+      <button class="modal-close" id="modal-close">CLOSE [ESC]</button>
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="">
+      </div>
+      <div class="modal-body">
+        <div>
+          <p class="modal-cat" id="modal-category"></p>
+          <h3 class="modal-title" id="modal-title-text"></h3>
+          <p class="modal-desc" id="modal-desc"></p>
+          <p class="modal-specs-label">Specifiche di Prestampa &amp; Finitura</p>
+          <p class="modal-specs mono" id="modal-specs"></p>
+        </div>
+        <div class="modal-cta">
+          <a href="mailto:antonio@example.com?subject=Richiesta%20Informazioni%20Progetto">
+            INQUIRE ABOUT THIS PROJECT
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M11 1L15 5M15 5L11 9M15 5H1" stroke="#f5f5f5" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-left">
+        <span class="section-label">03 — About</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-right">
+        <p class="about-manifesto">
+          Il design non è decorazione.<br>
+          È <strong>architettura</strong> del significato.
+          Un sistema che <strong>comunica</strong> prima ancora che il tuo cliente legga una sola parola.
+        </p>
+        <div class="about-col">
+          <p>Senior Art Director e Graphic Designer con oltre 30 anni di esperienza nella costruzione di identità visive per brand esigenti. Dalla grande distribuzione al lusso, dall'industria all'editoria.</p>
+          <p>Specializzato in brand identity, packaging strutturale, sistemi editoriali e direzione creativa. Ogni progetto nasce da un'analisi rigorosa del contesto competitivo.</p>
+        </div>
+        <div class="about-col">
+          <p>Lavoro con Adobe Creative Cloud alla massima profondità tecnica: gestione colore Fogra51/ISO Coated v2, prestampa esecutiva, fustelle strutturali, architettura tipografica svizzera.</p>
+          <p>Un approccio metodico che trasforma la creatività in vantaggio competitivo misurabile. Basato a Milano, operativo a livello internazionale.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">30+</span>
+            <span class="stat-label mono">Anni di esperienza</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">200+</span>
+            <span class="stat-label mono">Progetti completati</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">∞</span>
+            <span class="stat-label mono">Iterazioni per progetto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <span class="section-label">04 — Contatti</span>
+        <h2>Get in<br>Touch</h2>
+        <p>Che tu abbia una domanda su servizi, prezzi o nuovi sistemi di design, invia un messaggio diretto. Rispondo entro 24h.</p>
+        <img src="assets/form.png" alt="Studio Antonio Del Vecchio" class="contact-img">
+      </div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div style="display:none !important;" aria-hidden="true">
+          <input type="text" name="b_website_hp" tabindex="-1" value="" autocomplete="off">
+        </div>
+        <div class="field-border-top"></div>
+        <div class="field-group">
+          <div class="field" style="padding-right:24px;">
+            <label for="contact-name">Nome *</label>
+            <input type="text" id="contact-name" name="name" required placeholder="Mario Rossi">
+          </div>
+          <div class="field" style="padding-left:24px;">
+            <label for="contact-email">Email *</label>
+            <input type="email" id="contact-email" name="email" required placeholder="mario@esempio.it">
+          </div>
+        </div>
+        <div class="field-group full">
+          <div class="field">
+            <label for="contact-company">Azienda</label>
+            <input type="text" id="contact-company" name="company" placeholder="Nome Azienda">
+          </div>
+        </div>
+        <div class="field-group full">
+          <div class="field">
+            <label for="contact-message">Messaggio *</label>
+            <textarea id="contact-message" name="message" required rows="5" placeholder="Raccontami il tuo progetto..."></textarea>
+          </div>
+        </div>
+        <div id="contact-feedback" class="mono"></div>
+        <div class="submit-row">
+          <span class="submit-note mono">PROJECT ARCHIVE — 2026</span>
+          <button type="submit" class="submit-btn" id="contact-submit-btn">
+            <span id="contact-btn-text">INVIA MESSAGGIO</span>
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M11 1L15 5M15 5L11 9M15 5H1" stroke="#0a0a0a" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      ANTONIO DEL VECCHIO
+      <span>Senior Art Director — Milano, Italy</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:antonio@example.com">Email</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+      <li><a href="#behance">Behance</a></li>
+      <li><a href="#">Top ↑</a></li>
+    </ul>
+    <div class="footer-copy mono">© 2026 All Rights Reserved</div>
+  </footer>
+
+  <script>
+  (function(){
+    var preview=document.getElementById('work-preview');
+    var previewImg=document.getElementById('work-preview-img');
+    var items=document.querySelectorAll('.work-item');
+    var mouseX=0,mouseY=0;
+    document.addEventListener('mousemove',function(e){
+      mouseX=e.clientX;mouseY=e.clientY;
+      if(preview.classList.contains('visible')){preview.style.left=mouseX+'px';preview.style.top=mouseY+'px';}
+    });
+    items.forEach(function(item){
+      item.addEventListener('mouseenter',function(){
+        var img=item.getAttribute('data-img');
+        if(img){previewImg.src=img;preview.style.left=mouseX+'px';preview.style.top=mouseY+'px';preview.classList.add('visible');}
+      });
+      item.addEventListener('mouseleave',function(){preview.classList.remove('visible');});
+    });
+  })();
+
+  (function(){
+    var modal=document.getElementById('concept-modal');
+    var closeBtn=document.getElementById('modal-close');
+    var modalImg=document.getElementById('modal-img');
+    var modalCat=document.getElementById('modal-category');
+    var modalTit=document.getElementById('modal-title-text');
+    var modalDes=document.getElementById('modal-desc');
+    var modalSpe=document.getElementById('modal-specs');
+    var items=document.querySelectorAll('.work-item');
+    function openModal(item){
+      modalImg.src=item.getAttribute('data-img')||'';
+      modalImg.alt=item.getAttribute('data-title')||'';
+      modalCat.textContent=item.getAttribute('data-category')||'';
+      modalTit.textContent=item.getAttribute('data-title')||'';
+      modalDes.textContent=item.getAttribute('data-desc')||'';
+      modalSpe.textContent=item.getAttribute('data-specs')||'';
+      modal.style.display='flex';
+      requestAnimationFrame(function(){modal.classList.add('open');});
+      document.body.style.overflow='hidden';
+    }
+    function closeModal(){
+      modal.classList.remove('open');
+      setTimeout(function(){modal.style.display='none';document.body.style.overflow='';},300);
+    }
+    items.forEach(function(item){item.addEventListener('click',function(){openModal(item);});});
+    closeBtn.addEventListener('click',closeModal);
+    modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  })();
+
+  (function(){
+    var form=document.getElementById('contact-form');
+    var feedback=document.getElementById('contact-feedback');
+    var btnText=document.getElementById('contact-btn-text');
+    if(!form)return;
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=form.querySelector('[name="name"]').value.trim();
+      var email=form.querySelector('[name="email"]').value.trim();
+      var message=form.querySelector('[name="message"]').value.trim();
+      if(!name||!email||!message){
+        feedback.style.display='block';feedback.style.color='#737373';
+        feedback.textContent='Compila tutti i campi obbligatori.';return;
+      }
+      btnText.textContent='INVIO IN CORSO...';
+      setTimeout(function(){
+        feedback.style.display='block';feedback.style.color='#f5f5f5';
+        feedback.textContent='MESSAGGIO INVIATO — TI RISPONDO ENTRO 24H.';
+        btnText.textContent='INVIA MESSAGGIO';form.reset();
+      },1200);
+    });
+  })();
+  </script>
+</body>
+</html>

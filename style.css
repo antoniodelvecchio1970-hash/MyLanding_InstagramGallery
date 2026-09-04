@@ -1,0 +1,156 @@
+html {
+  scroll-behavior: initial;
+}
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  overflow-x: clip;
+}
+
+/* Ensure sticky elements work reliably on mobile WebKit / Safari */
+.hero-sticky-container,
+.cap-sticky-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  will-change: transform;
+}
+
+#hero-canvas {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ULTRA-SMOOTH GPU-ACCELERATED REVEAL & HOVER TRANSITION */
+@keyframes heroTextRevealOrganic {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(32px) translateZ(0);
+  }
+  60% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+/* STAGGERED ORGANIC HEADLINE REVEAL + GPU HARDWARE-ACCELERATED SILKY HOVER (NO TRANSLATION SHIFT) */
+.hero-line-1,
+.hero-line-2,
+.hero-line-3 {
+  display: inline-block;
+  opacity: 0;
+  color: #FFFFFF;
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  will-change: opacity, color;
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-line-1 {
+  animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.25s;
+}
+.hero-line-1:hover {
+  color: #E2A066; /* Warm Twilight Amber / Bronze Glow */
+  transform: none !important;
+}
+
+.hero-line-2 {
+  animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.55s;
+}
+.hero-line-2:hover {
+  color: #F5E6D3; /* Architectural Warm Champagne Accent */
+  transform: none !important;
+}
+
+.hero-line-3 {
+  animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.85s;
+}
+.hero-line-3:hover {
+  color: #D67A53; /* Terracotta / Sunset Copper Accent */
+  transform: none !important;
+}
+
+.hero-cta-reveal {
+  opacity: 0;
+  animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.1s;
+}
+
+/* MAGNETIC & SMOOTH ROLL-OVER ON CTA BUTTON */
+.circle-cta-btn {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.circle-cta-btn:hover {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+.circle-cta-btn svg {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.circle-cta-btn:hover svg {
+  transform: translateX(6px);
+}
+
+/* SCROLL INDICATOR ANIMATION */
+.scroll-indicator-line {
+  animation: scrollPulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Minimalist Navigation Link Underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #FFFFFF;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* CAPABILITIES HARDWARE ACCELERATION & CLIP-PATH MASKING */
+.cap-img {
+  will-change: clip-path, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+  clip-path: inset(0% 0% 0% 0%);
+  opacity: 1 !important;
+}
+.cap-text-block {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}
+
+/* HIGH-END EDITORIAL ARCHIVE CARD HOVER EASING */
+.editorial-card-img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-card:hover .editorial-card-img {
+  transform: scale(1.05);
+}
