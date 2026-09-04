@@ -154,3 +154,41 @@ body {
 .editorial-card:hover .editorial-card-img {
   transform: scale(1.05);
 }
+
+/* ================= 3-LINE HAMBURGER MORPHING BUTTON ================= */
+.menu-toggle-btn {
+  will-change: transform;
+}
+.menu-bar {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+.menu-toggle-btn:not(.is-active):hover .menu-bar-2 {
+  transform: translateX(-3px);
+}
+.menu-toggle-btn.is-active .menu-bar-1 {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.menu-toggle-btn.is-active .menu-bar-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle-btn.is-active .menu-bar-3 {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ================= FULLSCREEN EDITORIAL OVERLAY & SPOTLIGHT HOVER ================= */
+#menu-overlay {
+  will-change: transform, opacity;
+  touch-action: none;
+}
+#menu-links-list:hover .menu-link {
+  opacity: 0.35;
+}
+#menu-links-list:hover .menu-link:hover {
+  opacity: 1;
+}
+.menu-link {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+

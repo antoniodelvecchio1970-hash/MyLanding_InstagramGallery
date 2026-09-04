@@ -438,4 +438,188 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(statsBar);
   }
+
+  // 8. FULLSCREEN EDITORIAL NAVIGATION OVERLAY (3-LINE MORPH + GSAP CURTAIN)
+  const menuToggleBtn = document.getElementById('menu-toggle-btn');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const menuOverlayCloseBtn = document.getElementById('menu-overlay-close-btn');
+  const overlayBrand = document.querySelector('.overlay-brand');
+  const menuLinks = document.querySelectorAll('.menu-link');
+  const menuNavItems = document.querySelectorAll('.menu-nav-item');
+  const menuMetaCol = document.querySelector('.menu-meta-col');
+
+  let isMenuOpen = false;
+
+  if (menuOverlay) {
+    // Initial state: hidden off-screen to the top
+    gsap.set(menuOverlay, {
+      autoAlpha: 0,
+      yPercent: -100
+    });
+
+    const openMenu = () => {
+      if (isMenuOpen) return;
+      isMenuOpen = true;
+
+      // Update button state and ARIA
+      if (menuToggleBtn) {
+        menuToggleBtn.classList.add('is-active');
+        menuToggleBtn.setAttribute('aria-expanded', 'true');
+      }
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      menuOverlay.classList.remove('pointer-events-none');
+
+      // Halt scroll behind overlay
+      lenis.stop();
+
+      // GSAP Architectural Curtain Timeline
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      tl.set(menuOverlay, { autoAlpha: 1 })
+        .to(menuOverlay, {
+          yPercent: 0,
+          duration: 0.65,
+          ease: "power4.inOut"
+        })
+        .fromTo(menuNavItems, {
+          y: 45,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.07,
+          ease: "power3.out"
+        }, "-=0.25")
+        .fromTo(menuMetaCol, {
+          y: 20,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.45,
+          ease: "power2.out"
+        }, "-=0.35");
+    };
+
+    const closeMenu = (onClosed) => {
+      if (!isMenuOpen) return;
+      isMenuOpen = false;
+
+      if (menuToggleBtn) {
+        menuToggleBtn.classList.remove('is-active');
+        menuToggleBtn.setAttribute('aria-expanded', 'false');
+      }
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      menuOverlay.classList.add('pointer-events-none');
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.in" },
+        onComplete: () => {
+          gsap.set(menuOverlay, { autoAlpha: 0, yPercent: -100 });
+          lenis.start();
+          if (typeof onClosed === 'function') onClosed();
+        }
+      });
+
+      tl.to(menuNavItems, {
+        y: -25,
+        opacity: 0,
+        duration: 0.22,
+        stagger: 0.02
+      })
+      .to(menuMetaCol, {
+        opacity: 0,
+        duration: 0.18
+      }, "-=0.15")
+      .to(menuOverlay, {
+        yPercent: -100,
+        duration: 0.55,
+        ease: "power4.inOut"
+      }, "-=0.1");
+    };
+
+    // Toggle button handler
+    if (menuToggleBtn) {
+      menuToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isMenuOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    // Overlay Close button handler
+    if (menuOverlayCloseBtn) {
+      menuOverlayCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMenu();
+      });
+    }
+
+    // Brand emblem in overlay scrolls to top and closes
+    if (overlayBrand) {
+      overlayBrand.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu(() => {
+          lenis.scrollTo(0, {
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          });
+        });
+      });
+    }
+
+    // Menu links click navigation
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetSelector = link.getAttribute('href');
+        const targetElement = targetSelector ? document.querySelector(targetSelector) : null;
+
+        closeMenu(() => {
+          if (targetElement) {
+            lenis.scrollTo(targetElement, {
+              offset: 0,
+              duration: 1.4,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            });
+            if (history.pushState) {
+              history.pushState(null, null, targetSelector);
+            }
+          }
+        });
+      });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Smooth scroll for desktop header navigation links
+  document.querySelectorAll('nav a.nav-link').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetSelector = link.getAttribute('href');
+      if (targetSelector && targetSelector.startsWith('#')) {
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+          e.preventDefault();
+          lenis.scrollTo(targetEl, {
+            offset: 0,
+            duration: 1.4,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          });
+          if (history.pushState) {
+            history.pushState(null, null, targetSelector);
+          }
+        }
+      }
+    });
+  });
 });
+
