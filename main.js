@@ -80,22 +80,41 @@ document.addEventListener("DOMContentLoaded", () => {
       drawHeight = canvasWidth / imgRatio;
       offsetX = 0;
       offsetY = (canvasHeight - drawHeight) / 2;
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.filter = 'none';
+      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     } else {
-      drawWidth = canvasHeight * imgRatio;
-      drawHeight = canvasHeight;
-      offsetX = (canvasWidth - drawWidth) / 2;
-      offsetY = 0;
-
-      // On mobile portrait (canvasRatio < 0.8), shift monkeys to the left (~7.8% of drawWidth)
-      // so both monkeys (mother and baby) are prominently visible and centered on mobile viewports
+      // On mobile portrait (canvasRatio < 0.8), scale monkeys down to 70% height
+      // so both monkeys are completely visible with negative space to the left and right
       if (canvasRatio < 0.8) {
-        offsetX -= drawWidth * 0.078;
+        const scaleFactor = 0.70;
+        drawHeight = canvasHeight * scaleFactor;
+        drawWidth = drawHeight * imgRatio;
+
+        // Center monkeys horizontally on mobile screen (monkeys' center is at ~62.5% of 16:9 width)
+        offsetX = (canvasWidth / 2) - (0.625 * drawWidth);
+
+        // Ground the pedestal at the bottom of the viewport
+        offsetY = canvasHeight - drawHeight;
+
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        ctx.filter = 'none';
+
+        // Seamlessly extend top studio gradient upwards to y=0
+        ctx.drawImage(img, 0, 0, imgWidth, 10, offsetX, 0, drawWidth, offsetY + 1);
+
+        // Draw the sequence image
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      } else {
+        drawWidth = canvasHeight * imgRatio;
+        drawHeight = canvasHeight;
+        offsetX = (canvasWidth - drawWidth) / 2;
+        offsetY = 0;
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        ctx.filter = 'none';
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       }
     }
-
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    ctx.filter = 'none';
-    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     return true;
   }
 
