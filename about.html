@@ -46,31 +46,39 @@
   <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 
-<body class="bg-white text-black antialiased selection:bg-black selection:text-white font-sans">
+<body class="bg-white text-black antialiased selection:bg-black selection:text-white font-sans overflow-hidden">
 
   <!-- ================= AUGE-STYLE INTRO ANIMATION OVERLAY ================= -->
-  <div id="intro-loader" class="fixed inset-0 z-[60] w-full h-[100dvh] flex items-center justify-center pointer-events-none select-none overflow-hidden transition-colors duration-500" style="background-color: #E2A066;">
+  <div id="intro-loader" class="fixed inset-0 z-[60] w-full h-[100dvh] flex flex-col items-center justify-center cursor-pointer select-none overflow-hidden transition-colors duration-500" style="background-color: #8c62a1;">
     <div class="relative w-full h-full flex items-center justify-center px-6">
       
-      <!-- Word 1: DIREZIONE ARTISTICA (Hero Amber: #E2A066) -->
+      <!-- Word 1: DIREZIONE ARTISTICA. (Bg: #8c62a1) -->
       <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8">
         <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-white text-center">
-          DIREZIONE ARTISTICA
+          DIREZIONE ARTISTICA.
         </span>
       </div>
 
-      <!-- Word 2: CULTURA VISIVA (Hero Champagne: #F5E6D3) -->
-      <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8 opacity-0">
-        <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-[#070707] text-center">
-          CULTURA VISIVA
-        </span>
-      </div>
-
-      <!-- Word 3: IMPATTO ESTETICO (Hero Terracotta: #D67A53) -->
+      <!-- Word 2: CULTURA VISIVA. (Bg: #9271b6) -->
       <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8 opacity-0">
         <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-white text-center">
-          IMPATTO ESTETICO
+          CULTURA VISIVA.
         </span>
+      </div>
+
+      <!-- Word 3: IMPATTO ESTETICO. (Bg: #593460) -->
+      <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8 opacity-0">
+        <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-white text-center">
+          IMPATTO ESTETICO.
+        </span>
+      </div>
+
+      <!-- Scroll to explore hint (revealed on 3rd screen) -->
+      <div id="scroll-hint" class="absolute bottom-8 sm:bottom-12 flex flex-col items-center opacity-0 pointer-events-none transition-opacity duration-500">
+        <span class="text-[10px] sm:text-xs font-mono tracking-[0.25em] text-white/80 uppercase mb-2">SCROLL TO READ</span>
+        <svg class="w-4 h-4 text-white/80 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
 
     </div>
@@ -212,109 +220,50 @@
   </header>
 
 
-  <!-- ================= ABOUT MAIN CONTENT (AUGE DESIGN INSPIRED) ================= -->
-  <main id="about-main" class="w-full bg-white min-h-screen text-black pt-36 sm:pt-44 pb-32">
+  <!-- ================= ABOUT MAIN CONTENT (PREVIOUS VERSION RESTORED) ================= -->
+  <main id="about-main" class="w-full bg-white min-h-screen text-black pt-40 pb-32">
     <div class="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-20">
       
-      <!-- Section 1: Services & Headline (Auge Style) -->
-      <section class="about-reveal mb-24 lg:mb-36">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          
-          <!-- Left: Label -->
-          <div class="lg:col-span-4">
-            <span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-3">
-              OUR SERVICES
-            </span>
-            <div class="h-[1px] w-12 bg-neutral-300 mb-6 lg:mb-0"></div>
-          </div>
-
-          <!-- Right: Statement & Tag Cloud -->
-          <div class="lg:col-span-8 space-y-12">
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15] text-black">
-              Specializzato in <span class="font-bold text-black">Strategia</span>, <span class="font-bold text-black">Design</span>, <span class="font-bold text-black">Comunicazione</span> ed <span class="font-bold text-black">Experience</span>.
-            </h1>
-
-            <!-- Services Tag Cloud (Auge List) -->
-            <div class="pt-4 border-t border-neutral-200">
-              <p class="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                <span class="text-black font-semibold">Brand Identity &amp; Logo Design</span>, 
-                <span class="text-black font-semibold">Direzione Artistica</span>, 
-                Packaging Design &amp; Strutturale, 
-                Progettazione Grafica Editoriale, 
-                Campagne Outdoor &amp; Maxi Affissioni, 
-                UI / UX Design &amp; Web Experience, 
-                Visual Merchandising, 
-                Allestimenti Spaziali &amp; Exhibit, 
-                Design Guidelines &amp; Brand Book, 
-                Tipografia Custom &amp; Type Design, 
-                Digital &amp; Social Campaign, 
-                Brand Positioning &amp; Naming, 
-                Consulenza Strategica e Workflow AI Generativa.
-              </p>
-            </div>
-          </div>
-
+      <!-- Hero Text -->
+      <div class="mb-24 lg:mb-40">
+        <h1 class="text-[10vw] lg:text-[100px] font-black tracking-tighter leading-[0.9] uppercase mb-12">
+          <div class="overflow-hidden pb-2"><div class="about-hero-line transform translate-y-[115%] will-change-transform">SHAPING VISUAL</div></div>
+          <div class="overflow-hidden pb-2"><div class="about-hero-line transform translate-y-[115%] will-change-transform">EXPERIENCES.</div></div>
+        </h1>
+      </div>
+      
+      <!-- About Content Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        
+        <!-- Left Column (Services) -->
+        <div class="md:col-span-4">
+          <h3 class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/10 pb-4">Aree di Competenza</h3>
+          <ul class="text-sm md:text-base font-medium space-y-3 leading-relaxed text-neutral-800">
+            <li>Direzione Artistica</li>
+            <li>Brand Identity &amp; Logo Design</li>
+            <li>UI / UX Design</li>
+            <li>Progettazione Editoriale</li>
+            <li>Packaging Design</li>
+            <li>Campagne Outdoor &amp; Stampa</li>
+            <li>Visual Merchandising</li>
+            <li>Consulenza Strategica</li>
+          </ul>
         </div>
-      </section>
-
-      <!-- Section 2: Awards & Vision ad personam (Auge Style) -->
-      <section class="about-reveal pt-20 border-t border-neutral-200 mb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          
-          <!-- Left: Subtitle & Statement -->
-          <div class="lg:col-span-4">
-            <span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-3">
-              AWARDS &amp; VISION
-            </span>
-            <div class="h-[1px] w-12 bg-neutral-300 mb-6"></div>
-            <h2 class="text-2xl sm:text-3xl font-black tracking-tight uppercase leading-[1.1] text-black">
-              OLTRE 30 ANNI DEDICATI ALL'ECCELLENZA VISIVA E ALL'IMPATTO.
-            </h2>
+        
+        <!-- Right Column (Bio) -->
+        <div class="md:col-span-8 md:pl-12">
+          <h3 class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/10 pb-4">Chi Sono</h3>
+          <div class="text-xl md:text-3xl lg:text-4xl font-medium leading-[1.3] md:leading-[1.4] tracking-tight">
+            <p class="mb-8">
+              Sono un Art Director e Graphic Designer con sede a Napoli, specializzato nello sviluppo di ecosistemi visivi integrati. Combino <span class="font-bold text-black">Strategia, Design e Comunicazione</span> per dare forma all'identità dei brand e proiettarli nel futuro.
+            </p>
+            <p class="text-neutral-500">
+              Dalla concezione di interfacce digitali immersive fino alla progettazione di grandi formati per l'outdoor e packaging strutturali, il mio approccio è guidato da una cura maniacale per il dettaglio tipografico, il rigore compositivo e l'impatto visivo assoluto.
+            </p>
           </div>
-
-          <!-- Right: Narrative & Milestones -->
-          <div class="lg:col-span-8 space-y-10">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-normal leading-[1.4] text-neutral-800">
-              <p class="mb-6">
-                Con base a Napoli e una prospettiva aperta al mondo, progetto identità visive ad alta densità estetica. Il mio approccio fonde l'essenzialità del rigore tipografico svizzero con la forza espressiva e la calda sensualità mediterranea.
-              </p>
-              <p class="text-neutral-500 text-lg sm:text-xl leading-relaxed">
-                Dal packaging per brand di largo consumo ai sistemi di identità per boutique e istituzioni, ogni scelta formale è concepita per eliminare il superfluo e lasciare che la purezza dell'immagine parli da sola.
-              </p>
-            </div>
-
-            <!-- Credentials / Pillars Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-neutral-200">
-              <div class="space-y-2">
-                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">01 / TRAIETTORIA</span>
-                <h3 class="font-bold text-base text-black uppercase tracking-wide">30+ Anni di Esperienza</h3>
-                <p class="text-sm text-neutral-600 leading-relaxed">Un bagaglio solido maturato tra agenzie, studi editoriali e collaborazioni dirette con brand di rilievo nazionale.</p>
-              </div>
-
-              <div class="space-y-2">
-                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">02 / METODOLOGIA</span>
-                <h3 class="font-bold text-base text-black uppercase tracking-wide">Direzione Integrata</h3>
-                <p class="text-sm text-neutral-600 leading-relaxed">Controllo totale della filiera creativa: dal concept strategico alla prestampa, fino alla supervisione della produzione fisica e digitale.</p>
-              </div>
-
-              <div class="space-y-2">
-                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">03 / INNOVAZIONE</span>
-                <h3 class="font-bold text-base text-black uppercase tracking-wide">AI Workflow &amp; Futuro</h3>
-                <p class="text-sm text-neutral-600 leading-relaxed">Pioniera integrazione di strumenti generativi avanzati per prototipazione rapida ed esplorazione visiva senza limiti.</p>
-              </div>
-
-              <div class="space-y-2">
-                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">04 / RELAZIONE</span>
-                <h3 class="font-bold text-base text-black uppercase tracking-wide">Rapporto Sartoriale</h3>
-                <p class="text-sm text-neutral-600 leading-relaxed">Dialogo diretto senza filtri o intermediari, garantendo reattività, cura maniacale del dettaglio e totale allineamento agli obiettivi.</p>
-              </div>
-            </div>
-
-          </div>
-
         </div>
-      </section>
-
+        
+      </div>
     </div>
   </main>
 
@@ -355,59 +304,111 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       
-      // 1. Auge-Style Intro Loader Animation
       const loader = document.getElementById('intro-loader');
       const steps = document.querySelectorAll('.intro-step');
-      
-      if (loader && steps.length >= 3) {
-        // Temporarily lock scroll
-        document.body.style.overflow = 'hidden';
+      const scrollHint = document.getElementById('scroll-hint');
+      const aboutLines = document.querySelectorAll('.about-hero-line');
+      let canScroll = false;
+      let introDismissed = false;
 
-        const tl = gsap.timeline({
+      // Function to transition from Screen 3 to Reading Content
+      function dismissIntro() {
+        if (introDismissed) return;
+        introDismissed = true;
+
+        // Slide up the full-screen curtain smoothly
+        gsap.to(loader, {
+          yPercent: -100,
+          duration: 1.1,
+          ease: "expo.inOut",
           onComplete: () => {
-            document.body.style.overflow = '';
             loader.style.display = 'none';
+            document.body.classList.remove('overflow-hidden');
           }
         });
 
-        // Step 1: DIREZIONE ARTISTICA (Amber #E2A066)
-        // Word 1 starts visible with white text
-        tl.to({}, { duration: 0.8 }) // Hold step 1
-          
-          // Step 2: Transition to CULTURA VISIVA (Champagne #F5E6D3)
-          .to(steps[0], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" })
-          .to(loader, { backgroundColor: '#F5E6D3', duration: 0.4 }, "<")
-          .fromTo(steps[1], 
-            { opacity: 0, y: 40 }, 
-            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.1"
-          )
-          .to({}, { duration: 0.8 }) // Hold step 2
-
-          // Step 3: Transition to IMPATTO ESTETICO (Terracotta #D67A53)
-          .to(steps[1], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" })
-          .to(loader, { backgroundColor: '#D67A53', duration: 0.4 }, "<")
-          .fromTo(steps[2], 
-            { opacity: 0, y: 40 }, 
-            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.1"
-          )
-          .to({}, { duration: 0.9 }) // Hold step 3
-
-          // Curtain Up: Slide loader up to reveal page
-          .to(loader, {
-            yPercent: -100,
-            duration: 1.1,
-            ease: "power4.inOut"
-          })
-          
-          // Page elements entrance reveal
-          .fromTo(".about-reveal", 
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.0, stagger: 0.15, ease: "power3.out" },
-            "-=0.6"
-          );
+        // Reveal the main hero text
+        gsap.to(aboutLines, {
+          y: "0%",
+          duration: 1.2,
+          stagger: 0.1,
+          ease: "power4.out",
+          delay: 0.2
+        });
       }
 
-      // 2. Smart Header Logic (Hide on scroll down, show on scroll up)
+      if (loader && steps.length >= 3) {
+        const tl = gsap.timeline({
+          onComplete: () => {
+            // Screen 3 reached: stop and wait for user scroll to proceed
+            canScroll = true;
+            if (scrollHint) {
+              scrollHint.classList.remove('opacity-0');
+              scrollHint.classList.add('opacity-100');
+            }
+          }
+        });
+
+        // Step 1: DIREZIONE ARTISTICA. (Bg: #8c62a1)
+        tl.to({}, { duration: 0.75 }) // Hold step 1
+          
+          // Step 2: Transition to CULTURA VISIVA. (Bg: #9271b6)
+          .to(steps[0], { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" })
+          .to(loader, { backgroundColor: '#9271b6', duration: 0.35 }, "<")
+          .fromTo(steps[1], 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.05"
+          )
+          .to({}, { duration: 0.75 }) // Hold step 2
+
+          // Step 3: Transition to IMPATTO ESTETICO. (Bg: #593460)
+          .to(steps[1], { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" })
+          .to(loader, { backgroundColor: '#593460', duration: 0.35 }, "<")
+          .fromTo(steps[2], 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.05"
+          );
+          // Sequence pauses and holds on Screen 3
+
+        // --- LISTENERS FOR USER SCROLL / GESTURE ---
+        
+        // 1. Mouse wheel / Trackpad
+        window.addEventListener('wheel', (e) => {
+          if (canScroll && e.deltaY > 5) {
+            dismissIntro();
+          }
+        }, { passive: true });
+
+        // 2. Mobile touch swipe up (scrolling down)
+        let touchStartY = 0;
+        window.addEventListener('touchstart', (e) => {
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+          if (!canScroll) return;
+          const touchCurrentY = e.touches[0].clientY;
+          if (touchStartY - touchCurrentY > 20) {
+            dismissIntro();
+          }
+        }, { passive: true });
+
+        // 3. Keyboard scroll (ArrowDown, PageDown, Space)
+        window.addEventListener('keydown', (e) => {
+          if (canScroll && ['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+            dismissIntro();
+          }
+        });
+
+        // 4. Click anywhere on screen 3
+        loader.addEventListener('click', () => {
+          if (canScroll) {
+            dismissIntro();
+          }
+        });
+      }
+
+      // Smart Header Logic (Hide on scroll down, show on scroll up)
       const header = document.getElementById('smart-header');
       if (header) {
         let lastScroll = 0;
