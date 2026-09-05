@@ -284,74 +284,70 @@
   <script src="main.js?v=2.2"></script>
 
   <!-- Custom Animations for Auge Style -->
-  <script>
+    <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Title Entrance Animation (translating Y from 115% to 0 with cubic-bezier)
-      gsap.to(".auge-line", {
-        y: "0%",
-        duration: 1.2,
-        stagger: 0.1,
-        ease: "power4.out",
-        delay: 0.2
-      });
-
+      // About Page Splash Screen Logic
+      const splash = document.getElementById('about-splash');
+      const splashWord = document.getElementById('splash-word');
+      const aboutLines = document.querySelectorAll('.about-hero-line');
+      
+      if (splash && splashWord) {
+        // Prevent scrolling while splash is active
+        document.body.classList.add('overflow-hidden');
+        
+        const tl = gsap.timeline();
+        
+        // Word 1: DIREZIONE ARTISTICA (bg #E2A066)
+        tl.to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
+          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
+          
+          // Word 2: CULTURA VISIVA (bg #F5E6D3)
+          .call(() => {
+            splash.style.backgroundColor = '#F5E6D3';
+            splashWord.innerText = 'CULTURA VISIVA.';
+            splashWord.style.color = '#000000';
+            gsap.set(splashWord, { y: '115%' });
+          })
+          .to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
+          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
+          
+          // Word 3: IMPATTO ESTETICO (bg #D67A53)
+          .call(() => {
+            splash.style.backgroundColor = '#D67A53';
+            splashWord.innerText = 'IMPATTO ESTETICO.';
+            splashWord.style.color = '#FFFFFF';
+            gsap.set(splashWord, { y: '115%' });
+          })
+          .to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
+          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
+          
+          // Slide up splash screen
+          .to(splash, { y: '-100%', duration: 1.2, ease: "expo.inOut" })
+          .call(() => {
+            document.body.classList.remove('overflow-hidden');
+          })
+          
+          // Reveal page hero text
+          .to(aboutLines, {
+            y: "0%",
+            duration: 1.2,
+            stagger: 0.1,
+            ease: "power4.out"
+          }, "-=0.4");
+      }
       
       // Smart Header Logic
       const header = document.getElementById('smart-header');
       if (header) {
         let lastScroll = 0;
-        // Connect to native scroll event (works perfectly with Lenis)
         window.addEventListener('scroll', () => {
           const currentScroll = window.scrollY;
           if (currentScroll > lastScroll && currentScroll > 150) {
-            // Scrolling down
             header.style.transform = 'translateY(-100%)';
           } else {
-            // Scrolling up
             header.style.transform = 'translateY(0)';
           }
-          lastScroll = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-        });
-      }
-
-      // 2. Photos Entrance (ScrollTriggered)
-      // Make sure ScrollTrigger is registered
-      if (typeof ScrollTrigger !== "undefined") {
-        gsap.registerPlugin(ScrollTrigger);
-
-        const works = document.querySelectorAll(".auge-work");
-        works.forEach((work) => {
-          const container = work.querySelector(".auge-img-container");
-          const img = work.querySelector(".auge-img");
-          
-          // Clip-path reveal for container
-          gsap.fromTo(container, 
-            { clipPath: "inset(15% 0% 15% 0%)" },
-            {
-              clipPath: "inset(0% 0% 0% 0%)",
-              duration: 1.5,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: work,
-                start: "top 85%",
-              }
-            }
-          );
-
-          // Subtle scale and parallax for image
-          gsap.fromTo(img,
-            { scale: 1.15, yPercent: -5 },
-            {
-              scale: 1,
-              yPercent: 0,
-              duration: 1.5,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: work,
-                start: "top 85%",
-              }
-            }
-          );
+          lastScroll = currentScroll <= 0 ? 0 : currentScroll;
         });
       }
     });
