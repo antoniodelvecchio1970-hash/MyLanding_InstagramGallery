@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     syncTouch: false, // native momentum scrolling on mobile touch
     touchMultiplier: 1.0
   });
+  window.lenis = lenis;
 
   // Connect Lenis cleanly to GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
