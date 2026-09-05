@@ -58,28 +58,19 @@ body {
   animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.25s;
 }
-.hero-line-1:hover {
-  color: #E2A066; /* Warm Twilight Amber / Bronze Glow */
-  transform: none !important;
-}
+
 
 .hero-line-2 {
   animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.55s;
 }
-.hero-line-2:hover {
-  color: #F5E6D3; /* Architectural Warm Champagne Accent */
-  transform: none !important;
-}
+
 
 .hero-line-3 {
   animation: heroTextRevealOrganic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.85s;
 }
-.hero-line-3:hover {
-  color: #D67A53; /* Terracotta / Sunset Copper Accent */
-  transform: none !important;
-}
+
 
 .hero-cta-reveal {
   opacity: 0;

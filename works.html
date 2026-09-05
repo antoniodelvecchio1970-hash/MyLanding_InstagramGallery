@@ -180,23 +180,25 @@
   </div>
 <!-- FIXED HEADER -->
     <!-- FIXED HEADER -->
-  <header class="fixed top-0 left-0 w-full flex items-center justify-between z-40 px-6 sm:px-8 lg:px-12 pt-8 pb-6 bg-white pointer-events-auto transition-transform duration-300 transform translate-y-0" id="smart-header">
-    <a href="index.html" aria-label="Home" class="flex items-center space-x-2 text-black hover:opacity-70 transition-opacity">
-      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M12 3L2 21h20L12 3z" />
-      </svg>
-    </a>
-    <nav class="hidden md:flex items-center space-x-12 text-xs font-bold tracking-widest uppercase text-black">
-      <a href="index.html#capabilities" class="nav-link py-1 hover:text-black/60 transition-colors">SERVICES</a>
-      <a href="works.html" class="nav-link py-1 text-black border-b border-black">WORKS</a>
-      <a href="about.html" class="nav-link py-1 hover:text-black/60 transition-colors">ABOUT</a>
-      <a href="contact.html" class="nav-link py-1 hover:text-black/60 transition-colors">CONTACT</a>
-    </nav>
-    <button id="menu-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="menu-toggle-btn text-black focus:outline-none flex flex-col justify-center items-end w-12 h-12 cursor-pointer group relative z-50 select-none touch-manipulation">
-      <span class="menu-bar menu-bar-1 block w-6 h-[1.5px] bg-black rounded-full transition-all duration-300"></span>
-      <span class="menu-bar menu-bar-2 block w-6 h-[1.5px] bg-black rounded-full my-[5px] transition-all duration-300"></span>
-      <span class="menu-bar menu-bar-3 block w-6 h-[1.5px] bg-black rounded-full transition-all duration-300"></span>
-    </button>
+  <header class="fixed top-0 left-0 w-full z-40 bg-white pointer-events-auto transition-transform duration-300 transform translate-y-0" id="smart-header">
+    <div class="w-full max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 lg:px-20 pt-8 pb-6">
+      <a href="index.html" aria-label="Home" class="flex items-center space-x-2 text-black hover:opacity-70 transition-opacity">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 3L2 21h20L12 3z" />
+        </svg>
+      </a>
+      <nav class="hidden md:flex items-center space-x-12 text-xs font-bold tracking-widest uppercase text-black">
+        <a href="index.html#capabilities" class="nav-link py-1 hover:text-black/60 transition-colors">SERVICES</a>
+        <a href="works.html" class="nav-link py-1 text-black border-b border-black">WORKS</a>
+        <a href="about.html" class="nav-link py-1 hover:text-black/60 transition-colors">ABOUT</a>
+        <a href="contact.html" class="nav-link py-1 hover:text-black/60 transition-colors">CONTACT</a>
+      </nav>
+      <button id="menu-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="menu-toggle-btn text-black focus:outline-none flex flex-col justify-center items-end w-12 h-12 cursor-pointer group relative z-50 select-none touch-manipulation">
+        <span class="menu-bar menu-bar-1 block w-6 h-[1.5px] bg-black rounded-full transition-all duration-300"></span>
+        <span class="menu-bar menu-bar-2 block w-6 h-[1.5px] bg-black rounded-full my-[5px] transition-all duration-300"></span>
+        <span class="menu-bar menu-bar-3 block w-6 h-[1.5px] bg-black rounded-full transition-all duration-300"></span>
+      </button>
+    </div>
   </header>
 
 
@@ -349,7 +351,7 @@
 
   <!-- FIXED SQUARE BACK TO TOP BUTTON -->
   <a href="#" aria-label="Torna all'inizio"
-    class="fixed bottom-6 right-6 z-40 w-9 h-9 bg-transparent border border-white/60 hover:border-white/15 hover:border-[0.5px] text-white/80 hover:text-white/40 flex flex-col items-center justify-center font-mono text-[9px] tracking-tighter transition-all duration-300 rounded-none backdrop-blur-sm group">
+    class="fixed bottom-6 right-6 z-40 w-9 h-9 bg-transparent border-[0.5px] border-white/60 hover:border-white/15 hover:border-[0.5px] text-white/80 hover:text-white/40 flex flex-col items-center justify-center font-mono text-[9px] tracking-tighter transition-all duration-300 rounded-none backdrop-blur-sm group">
     <span class="text-[9px] leading-none mb-0.5 group-hover:-translate-y-0.5 transition-transform">↑</span>
     <span class="leading-none">TOP</span>
   </a>
