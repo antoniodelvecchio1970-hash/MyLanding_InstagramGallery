@@ -180,7 +180,7 @@
   </div>
 <!-- FIXED HEADER -->
     <!-- FIXED HEADER -->
-  <header class="fixed top-0 left-0 w-full flex items-center justify-between z-40 px-6 sm:px-8 lg:px-12 pt-8 pb-6 bg-white pointer-events-auto">
+  <header class="fixed top-0 left-0 w-full flex items-center justify-between z-40 px-6 sm:px-8 lg:px-12 pt-8 pb-6 bg-white pointer-events-auto transition-transform duration-300 transform translate-y-0" id="smart-header">
     <a href="index.html" aria-label="Home" class="flex items-center space-x-2 text-black hover:opacity-70 transition-opacity">
       <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
         <path d="M12 3L2 21h20L12 3z" />
@@ -350,6 +350,25 @@
         ease: "power4.out",
         delay: 0.2
       });
+
+      
+      // Smart Header Logic
+      const header = document.getElementById('smart-header');
+      if (header) {
+        let lastScroll = 0;
+        // Connect to native scroll event (works perfectly with Lenis)
+        window.addEventListener('scroll', () => {
+          const currentScroll = window.scrollY;
+          if (currentScroll > lastScroll && currentScroll > 150) {
+            // Scrolling down
+            header.style.transform = 'translateY(-100%)';
+          } else {
+            // Scrolling up
+            header.style.transform = 'translateY(0)';
+          }
+          lastScroll = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+      }
 
       // 2. Photos Entrance (ScrollTriggered)
       // Make sure ScrollTrigger is registered
