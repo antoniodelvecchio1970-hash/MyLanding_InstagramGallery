@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2. Setup Canvas & 59 Frame Sequence Preloading
   const canvas = document.getElementById("hero-canvas");
+  if (canvas) {
   const ctx = canvas.getContext("2d");
-
   const frameCount = 59; // frame_000 to frame_058
   // Mobile loads the ~1.3MB WebP sequence; desktop loads the full-resolution sequence
   const currentFrame = (index) => {
@@ -197,7 +197,11 @@ document.addEventListener("DOMContentLoaded", () => {
     onUpdate: render
   });
 
+  }
+
   // 4. Full-Screen Immersive Capabilities ScrollTrigger Timeline (With End Hold State)
+  const capPinWrapper = document.querySelector(".cap-pin-wrapper");
+  if (capPinWrapper) {
   const capTL = gsap.timeline({
     scrollTrigger: {
       trigger: ".cap-pin-wrapper",
@@ -242,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // HOLD STATE FINALE RIGIDO
     .to({}, { duration: 2.5 });
+  }
 
   // 5. Concept Lightbox Modal Logic
   const modal = document.getElementById("concept-modal");

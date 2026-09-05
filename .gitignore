@@ -1,3 +1,12 @@
 .DS_Store
 *.bak
 /tmp/
+*.py
+*.bak
+*_vB.html
+node_modules/
+package-lock.json
+package.json
+screenshot.png
+test_dom.js
+test_puppeteer.js
