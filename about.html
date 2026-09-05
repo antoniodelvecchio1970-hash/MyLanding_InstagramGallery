@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth ">
+<html lang="it" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio Del Vecchio — Senior Art Director</title>
-  <meta name="description" content="Visual Identity, Spatial Systems & Creative Direction by Antonio Del Vecchio.">
+  <title>About — Antonio Del Vecchio</title>
+  <meta name="description" content="Chi sono — Art Direction, Visual Culture & Impact by Antonio Del Vecchio.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +46,38 @@
   <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 
-<body class="antialiased selection:bg-black selection:text-white">
-<!-- ================= FULLSCREEN EDITORIAL NAVIGATION OVERLAY ================= -->
+<body class="bg-white text-black antialiased selection:bg-black selection:text-white font-sans">
+
+  <!-- ================= AUGE-STYLE INTRO ANIMATION OVERLAY ================= -->
+  <div id="intro-loader" class="fixed inset-0 z-[60] w-full h-[100dvh] flex items-center justify-center pointer-events-none select-none overflow-hidden transition-colors duration-500" style="background-color: #E2A066;">
+    <div class="relative w-full h-full flex items-center justify-center px-6">
+      
+      <!-- Word 1: DIREZIONE ARTISTICA (Hero Amber: #E2A066) -->
+      <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8">
+        <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-white text-center">
+          DIREZIONE ARTISTICA
+        </span>
+      </div>
+
+      <!-- Word 2: CULTURA VISIVA (Hero Champagne: #F5E6D3) -->
+      <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8 opacity-0">
+        <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-[#070707] text-center">
+          CULTURA VISIVA
+        </span>
+      </div>
+
+      <!-- Word 3: IMPATTO ESTETICO (Hero Terracotta: #D67A53) -->
+      <div class="intro-step absolute inset-0 flex items-center justify-center px-4 sm:px-8 opacity-0">
+        <span class="text-[12vw] sm:text-[9vw] font-black uppercase tracking-tighter leading-none text-white text-center">
+          IMPATTO ESTETICO
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= FULLSCREEN EDITORIAL NAVIGATION OVERLAY ================= -->
   <div id="menu-overlay" class="hidden fixed inset-0 z-50 w-full h-[100dvh] bg-[#070707] flex flex-col justify-between px-6 sm:px-8 lg:px-12 py-6 sm:py-8 overflow-hidden pointer-events-none opacity-0 invisible" aria-hidden="true">
     
     <!-- Subtle Ambient Architectural Vignette -->
@@ -55,19 +85,16 @@
 
     <!-- Top Bar (Mirrors Header Position & Geometry) -->
     <div class="w-full max-w-7xl mx-auto flex items-center justify-between z-10 pt-2 relative">
-      <!-- Minimalist Brand Emblem Left -->
-      <a href="#" class="overlay-brand flex items-center space-x-2 text-white hover:opacity-80 transition-opacity" aria-label="Home">
+      <a href="index.html" class="overlay-brand flex items-center space-x-2 text-white hover:opacity-80 transition-opacity" aria-label="Home">
         <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M12 3L2 21h20L12 3z" />
         </svg>
       </a>
 
-      <!-- Center Architectural Label -->
       <span class="text-[10px] font-mono tracking-[0.25em] text-neutral-500 uppercase select-none hidden sm:block">
         INDEX — ARCHIVE 2026
       </span>
 
-      <!-- Close Button Right -->
       <button id="menu-overlay-close-btn" aria-label="Close Navigation Menu"
         class="group flex items-center space-x-3 text-white focus:outline-none cursor-pointer py-2 -mr-2 select-none touch-manipulation">
         <span class="text-[10px] font-mono tracking-widest text-neutral-400 group-hover:text-white uppercase transition-colors">CHIUDI</span>
@@ -78,11 +105,9 @@
       </button>
     </div>
 
-    <!-- Center: 4 Architectural Menu Items & Editorial Sidebar -->
+    <!-- Center: Navigation Links -->
     <div class="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center py-4 sm:py-8 z-10 relative">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-
-        <!-- Primary 4 Navigation Links (Col 8) -->
         <nav class="lg:col-span-8 flex flex-col divide-y divide-white/10" id="menu-links-list">
 
           <!-- 01 SERVICES -->
@@ -101,13 +126,13 @@
 
           <!-- 02 WORKS -->
           <div class="menu-nav-item py-3 sm:py-5 overflow-hidden">
-            <a href="works.html" class="menu-link group flex items-baseline justify-between w-full text-left" >
+            <a href="works.html" class="menu-link group flex items-baseline justify-between w-full text-left">
               <div class="flex items-baseline space-x-4 sm:space-x-8">
-                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-[#F5E6D3] transition-colors duration-300">02</span>
+                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-[#E2A066] transition-colors duration-300">02</span>
                 <span class="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight group-hover:translate-x-3 transition-transform duration-300">WORKS</span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">Selected Archive</span>
+                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">Selected Works 1991–2026</span>
                 <span class="text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-base sm:text-lg">↗</span>
               </div>
             </a>
@@ -115,13 +140,13 @@
 
           <!-- 03 ABOUT -->
           <div class="menu-nav-item py-3 sm:py-5 overflow-hidden">
-            <a href="about.html" class="menu-link group flex items-baseline justify-between w-full text-left" >
+            <a href="about.html" class="menu-link group flex items-baseline justify-between w-full text-left">
               <div class="flex items-baseline space-x-4 sm:space-x-8">
-                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-[#D67A53] transition-colors duration-300">03</span>
+                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-[#E2A066] transition-colors duration-300">03</span>
                 <span class="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight group-hover:translate-x-3 transition-transform duration-300">ABOUT</span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">30+ Years Direction</span>
+                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">Profile &amp; Vision</span>
                 <span class="text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-base sm:text-lg">↗</span>
               </div>
             </a>
@@ -129,13 +154,13 @@
 
           <!-- 04 CONTACT -->
           <div class="menu-nav-item py-3 sm:py-5 overflow-hidden">
-            <a href="contact.html" class="menu-link group flex items-baseline justify-between w-full text-left" >
+            <a href="contact.html" class="menu-link group flex items-baseline justify-between w-full text-left">
               <div class="flex items-baseline space-x-4 sm:space-x-8">
-                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-white transition-colors duration-300">04</span>
+                <span class="font-mono text-xs sm:text-sm text-neutral-500 tracking-widest group-hover:text-[#E2A066] transition-colors duration-300">04</span>
                 <span class="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight group-hover:translate-x-3 transition-transform duration-300">CONTACT</span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">Start Collaboration</span>
+                <span class="hidden md:inline-block font-mono text-[11px] tracking-widest text-neutral-400 uppercase group-hover:text-white transition-colors duration-300">Initiate Dialogue</span>
                 <span class="text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 text-base sm:text-lg">↗</span>
               </div>
             </a>
@@ -143,31 +168,16 @@
 
         </nav>
 
-        <!-- Lateral Editorial Metadata (Col 4) -->
-        <div class="lg:col-span-4 lg:pl-8 flex flex-col justify-between space-y-6 text-xs text-neutral-400 font-mono menu-meta-col pt-2 lg:pt-0">
-          <div class="space-y-1.5">
-            <p class="text-white font-medium tracking-widest uppercase text-[10px]">ART DIRECTION</p>
-            <p class="text-neutral-400 leading-relaxed font-sans text-xs sm:text-sm">
-              Antonio Del Vecchio — Design, Evoluzione, Impatto. 30+ anni di direzione artistica e visione strategica.
-            </p>
-          </div>
-          
-          <div class="space-y-1">
-            <p class="text-white font-medium tracking-widest uppercase text-[10px]">CONTATTO DIRETTO</p>
-            <a href="mailto:info@antoniodelvecchio.com" class="text-neutral-300 hover:text-white transition-colors block text-xs sm:text-sm underline underline-offset-4 decoration-neutral-700 hover:decoration-white">
-              info@antoniodelvecchio.com
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-12 flex flex-col justify-between space-y-6 sm:space-y-8">
+          <div>
+            <div class="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-3">CONTATTO DIRETTO</div>
+            <a href="mailto:antonio@example.com" class="text-sm sm:text-base font-light text-white hover:text-[#E2A066] transition-colors block break-all">
+              antonio@example.com
             </a>
+            <div class="text-xs text-neutral-400 mt-1 font-mono">Napoli / Milano — Italia</div>
           </div>
-
-          <div class="space-y-1.5">
-            <p class="text-white font-medium tracking-widest uppercase text-[10px]">SOCIAL &amp; NETWORK</p>
-            <div class="flex space-x-6 text-neutral-300 text-xs">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">INSTAGRAM ↗</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LINKEDIN ↗</a>
-            </div>
-          </div>
-        </div>
-
+        </aside>
       </div>
     </div>
 
@@ -176,10 +186,10 @@
       <span>NAPOLI / MILANO — GLOBAL</span>
       <span>EST. 1991 — © ANTONIO DEL VECCHIO</span>
     </div>
-
   </div>
-<!-- FIXED HEADER -->
-    <!-- FIXED HEADER -->
+
+
+  <!-- ================= FIXED SMART HEADER ================= -->
   <header class="fixed top-0 left-0 w-full z-40 bg-white pointer-events-auto transition-transform duration-300 transform translate-y-0" id="smart-header">
     <div class="w-full max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 lg:px-20 pt-8 pb-6">
       <a href="index.html" aria-label="Home" class="flex items-center space-x-2 text-black hover:opacity-70 transition-opacity">
@@ -189,8 +199,8 @@
       </a>
       <nav class="hidden md:flex items-center space-x-12 text-xs font-bold tracking-widest uppercase text-black">
         <a href="index.html#capabilities" class="nav-link py-1 hover:text-black/60 transition-colors">SERVICES</a>
-        <a href="works.html" class="nav-link py-1 text-black border-b border-black">WORKS</a>
-        <a href="about.html" class="nav-link py-1 hover:text-black/60 transition-colors">ABOUT</a>
+        <a href="works.html" class="nav-link py-1 hover:text-black/60 transition-colors">WORKS</a>
+        <a href="about.html" class="nav-link py-1 text-black border-b border-black">ABOUT</a>
         <a href="contact.html" class="nav-link py-1 hover:text-black/60 transition-colors">CONTACT</a>
       </nav>
       <button id="menu-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="menu-toggle-btn text-black focus:outline-none flex flex-col justify-center items-end w-12 h-12 cursor-pointer group relative z-50 select-none touch-manipulation">
@@ -202,63 +212,120 @@
   </header>
 
 
-  <!-- ================= WORKS SECTION (AUGE DESIGN STYLE) ================= -->
-  
-  <!-- ================= AUGE-STYLE WORKS SECTION ================= -->
-  <main class="w-full bg-white min-h-screen text-black pt-40 pb-32">
-  <div class="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-20">
-    
-    <!-- Hero Text -->
-    <div class="mb-24 lg:mb-40">
-      <h1 class="text-[10vw] lg:text-[100px] font-black tracking-tighter leading-[0.9] uppercase mb-12">
-        <div class="overflow-hidden pb-2"><div class="about-hero-line transform translate-y-[115%] will-change-transform">SHAPING VISUAL</div></div>
-        <div class="overflow-hidden pb-2"><div class="about-hero-line transform translate-y-[115%] will-change-transform">EXPERIENCES.</div></div>
-      </h1>
-    </div>
-    
-    <!-- About Content Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+  <!-- ================= ABOUT MAIN CONTENT (AUGE DESIGN INSPIRED) ================= -->
+  <main id="about-main" class="w-full bg-white min-h-screen text-black pt-36 sm:pt-44 pb-32">
+    <div class="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-20">
       
-      <!-- Left Column (Services) -->
-      <div class="md:col-span-4">
-        <h3 class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/10 pb-4">Aree di Competenza</h3>
-        <ul class="text-sm md:text-base font-medium space-y-3 leading-relaxed text-neutral-800">
-          <li>Direzione Artistica</li>
-          <li>Brand Identity & Logo Design</li>
-          <li>UI / UX Design</li>
-          <li>Progettazione Editoriale</li>
-          <li>Packaging Design</li>
-          <li>Campagne Outdoor & Stampa</li>
-          <li>Visual Merchandising</li>
-          <li>Consulenza Strategica</li>
-        </ul>
-      </div>
-      
-      <!-- Right Column (Bio) -->
-      <div class="md:col-span-8 md:pl-12">
-        <h3 class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/10 pb-4">Chi Sono</h3>
-        <div class="text-xl md:text-3xl lg:text-4xl font-medium leading-[1.3] md:leading-[1.4] tracking-tight">
-          <p class="mb-8">
-            Sono un Art Director e Graphic Designer con sede a Napoli, specializzato nello sviluppo di ecosistemi visivi integrati. Combino <span class="font-bold text-black">Strategia, Design e Comunicazione</span> per dare forma all'identità dei brand e proiettarli nel futuro.
-          </p>
-          <p class="text-neutral-500">
-            Dalla concezione di interfacce digitali immersive fino alla progettazione di grandi formati per l'outdoor e packaging strutturali, il mio approccio è guidato da una cura maniacale per il dettaglio tipografico, il rigore compositivo e l'impatto visivo assoluto.
-          </p>
+      <!-- Section 1: Services & Headline (Auge Style) -->
+      <section class="about-reveal mb-24 lg:mb-36">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          
+          <!-- Left: Label -->
+          <div class="lg:col-span-4">
+            <span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-3">
+              OUR SERVICES
+            </span>
+            <div class="h-[1px] w-12 bg-neutral-300 mb-6 lg:mb-0"></div>
+          </div>
+
+          <!-- Right: Statement & Tag Cloud -->
+          <div class="lg:col-span-8 space-y-12">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15] text-black">
+              Specializzato in <span class="font-bold text-black">Strategia</span>, <span class="font-bold text-black">Design</span>, <span class="font-bold text-black">Comunicazione</span> ed <span class="font-bold text-black">Experience</span>.
+            </h1>
+
+            <!-- Services Tag Cloud (Auge List) -->
+            <div class="pt-4 border-t border-neutral-200">
+              <p class="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+                <span class="text-black font-semibold">Brand Identity &amp; Logo Design</span>, 
+                <span class="text-black font-semibold">Direzione Artistica</span>, 
+                Packaging Design &amp; Strutturale, 
+                Progettazione Grafica Editoriale, 
+                Campagne Outdoor &amp; Maxi Affissioni, 
+                UI / UX Design &amp; Web Experience, 
+                Visual Merchandising, 
+                Allestimenti Spaziali &amp; Exhibit, 
+                Design Guidelines &amp; Brand Book, 
+                Tipografia Custom &amp; Type Design, 
+                Digital &amp; Social Campaign, 
+                Brand Positioning &amp; Naming, 
+                Consulenza Strategica e Workflow AI Generativa.
+              </p>
+            </div>
+          </div>
+
         </div>
-      </div>
-      
+      </section>
+
+      <!-- Section 2: Awards & Vision ad personam (Auge Style) -->
+      <section class="about-reveal pt-20 border-t border-neutral-200 mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+          
+          <!-- Left: Subtitle & Statement -->
+          <div class="lg:col-span-4">
+            <span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-neutral-400 block mb-3">
+              AWARDS &amp; VISION
+            </span>
+            <div class="h-[1px] w-12 bg-neutral-300 mb-6"></div>
+            <h2 class="text-2xl sm:text-3xl font-black tracking-tight uppercase leading-[1.1] text-black">
+              OLTRE 30 ANNI DEDICATI ALL'ECCELLENZA VISIVA E ALL'IMPATTO.
+            </h2>
+          </div>
+
+          <!-- Right: Narrative & Milestones -->
+          <div class="lg:col-span-8 space-y-10">
+            <div class="text-xl sm:text-2xl lg:text-3xl font-normal leading-[1.4] text-neutral-800">
+              <p class="mb-6">
+                Con base a Napoli e una prospettiva aperta al mondo, progetto identità visive ad alta densità estetica. Il mio approccio fonde l'essenzialità del rigore tipografico svizzero con la forza espressiva e la calda sensualità mediterranea.
+              </p>
+              <p class="text-neutral-500 text-lg sm:text-xl leading-relaxed">
+                Dal packaging per brand di largo consumo ai sistemi di identità per boutique e istituzioni, ogni scelta formale è concepita per eliminare il superfluo e lasciare che la purezza dell'immagine parli da sola.
+              </p>
+            </div>
+
+            <!-- Credentials / Pillars Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-neutral-200">
+              <div class="space-y-2">
+                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">01 / TRAIETTORIA</span>
+                <h3 class="font-bold text-base text-black uppercase tracking-wide">30+ Anni di Esperienza</h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">Un bagaglio solido maturato tra agenzie, studi editoriali e collaborazioni dirette con brand di rilievo nazionale.</p>
+              </div>
+
+              <div class="space-y-2">
+                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">02 / METODOLOGIA</span>
+                <h3 class="font-bold text-base text-black uppercase tracking-wide">Direzione Integrata</h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">Controllo totale della filiera creativa: dal concept strategico alla prestampa, fino alla supervisione della produzione fisica e digitale.</p>
+              </div>
+
+              <div class="space-y-2">
+                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">03 / INNOVAZIONE</span>
+                <h3 class="font-bold text-base text-black uppercase tracking-wide">AI Workflow &amp; Futuro</h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">Pioniera integrazione di strumenti generativi avanzati per prototipazione rapida ed esplorazione visiva senza limiti.</p>
+              </div>
+
+              <div class="space-y-2">
+                <span class="font-mono text-xs text-neutral-400 uppercase tracking-wider block">04 / RELAZIONE</span>
+                <h3 class="font-bold text-base text-black uppercase tracking-wide">Rapporto Sartoriale</h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">Dialogo diretto senza filtri o intermediari, garantendo reattività, cura maniacale del dettaglio e totale allineamento agli obiettivi.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
-  </div>
-</main>
+  </main>
 
 
-<!-- ================= 5. FOOTER (DARK MODE WITH TOP BUTTON) ================= -->
+  <!-- ================= 5. FOOTER (DARK MODE WITH TOP BUTTON) ================= -->
   <footer id="contact" class="bg-heroDark text-white py-16 px-6 sm:px-8 lg:px-12 border-t border-neutral-800 relative z-20">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
       <div>
         <h3 class="text-xl font-bold uppercase tracking-wider">ANTONIO DEL VECCHIO</h3>
-        <p class="text-xs text-neutral-400 mt-1">Senior Art Director & Graphic Designer — Napoli, Italia</p>
+        <p class="text-xs text-neutral-400 mt-1">Senior Art Director &amp; Graphic Designer — Napoli, Italia</p>
       </div>
 
       <div class="flex items-center space-x-8 text-xs font-bold tracking-widest uppercase text-neutral-300">
@@ -274,69 +341,73 @@
     </div>
   </footer>
 
-  <!-- FIXED SQUARE BACK TO TOP BUTTON -->
+  <!-- FIXED SQUARE BACK TO TOP BUTTON (90% Black on white background pages) -->
   <a href="#" aria-label="Torna all'inizio"
     class="fixed bottom-6 right-6 z-40 w-9 h-9 bg-transparent border-[0.5px] border-black/90 hover:border-black/40 text-black/90 hover:text-black/50 flex flex-col items-center justify-center font-mono text-[9px] tracking-tighter transition-all duration-300 rounded-none backdrop-blur-sm group">
     <span class="text-[9px] leading-none mb-0.5 group-hover:-translate-y-0.5 transition-transform">↑</span>
     <span class="leading-none">TOP</span>
   </a>
 
+  <!-- Global scripts -->
   <script src="main.js?v=2.2"></script>
 
-  <!-- Custom Animations for Auge Style -->
-    <script>
+  <!-- Auge-style Intro & Smart Header Scripts -->
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // About Page Splash Screen Logic
-      const splash = document.getElementById('about-splash');
-      const splashWord = document.getElementById('splash-word');
-      const aboutLines = document.querySelectorAll('.about-hero-line');
       
-      if (splash && splashWord) {
-        // Prevent scrolling while splash is active
-        document.body.classList.add('overflow-hidden');
-        
-        const tl = gsap.timeline();
-        
-        // Word 1: DIREZIONE ARTISTICA (bg #E2A066)
-        tl.to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
-          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
+      // 1. Auge-Style Intro Loader Animation
+      const loader = document.getElementById('intro-loader');
+      const steps = document.querySelectorAll('.intro-step');
+      
+      if (loader && steps.length >= 3) {
+        // Temporarily lock scroll
+        document.body.style.overflow = 'hidden';
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            document.body.style.overflow = '';
+            loader.style.display = 'none';
+          }
+        });
+
+        // Step 1: DIREZIONE ARTISTICA (Amber #E2A066)
+        // Word 1 starts visible with white text
+        tl.to({}, { duration: 0.8 }) // Hold step 1
           
-          // Word 2: CULTURA VISIVA (bg #F5E6D3)
-          .call(() => {
-            splash.style.backgroundColor = '#F5E6D3';
-            splashWord.innerText = 'CULTURA VISIVA.';
-            splashWord.style.color = '#000000';
-            gsap.set(splashWord, { y: '115%' });
+          // Step 2: Transition to CULTURA VISIVA (Champagne #F5E6D3)
+          .to(steps[0], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" })
+          .to(loader, { backgroundColor: '#F5E6D3', duration: 0.4 }, "<")
+          .fromTo(steps[1], 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.1"
+          )
+          .to({}, { duration: 0.8 }) // Hold step 2
+
+          // Step 3: Transition to IMPATTO ESTETICO (Terracotta #D67A53)
+          .to(steps[1], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" })
+          .to(loader, { backgroundColor: '#D67A53', duration: 0.4 }, "<")
+          .fromTo(steps[2], 
+            { opacity: 0, y: 40 }, 
+            { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.1"
+          )
+          .to({}, { duration: 0.9 }) // Hold step 3
+
+          // Curtain Up: Slide loader up to reveal page
+          .to(loader, {
+            yPercent: -100,
+            duration: 1.1,
+            ease: "power4.inOut"
           })
-          .to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
-          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
           
-          // Word 3: IMPATTO ESTETICO (bg #D67A53)
-          .call(() => {
-            splash.style.backgroundColor = '#D67A53';
-            splashWord.innerText = 'IMPATTO ESTETICO.';
-            splashWord.style.color = '#FFFFFF';
-            gsap.set(splashWord, { y: '115%' });
-          })
-          .to(splashWord, { y: '0%', duration: 0.8, ease: "power4.out" })
-          .to(splashWord, { y: '-115%', duration: 0.6, ease: "power4.in", delay: 0.4 })
-          
-          // Slide up splash screen
-          .to(splash, { y: '-100%', duration: 1.2, ease: "expo.inOut" })
-          .call(() => {
-            document.body.classList.remove('overflow-hidden');
-          })
-          
-          // Reveal page hero text
-          .to(aboutLines, {
-            y: "0%",
-            duration: 1.2,
-            stagger: 0.1,
-            ease: "power4.out"
-          }, "-=0.4");
+          // Page elements entrance reveal
+          .fromTo(".about-reveal", 
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.0, stagger: 0.15, ease: "power3.out" },
+            "-=0.6"
+          );
       }
-      
-      // Smart Header Logic
+
+      // 2. Smart Header Logic (Hide on scroll down, show on scroll up)
       const header = document.getElementById('smart-header');
       if (header) {
         let lastScroll = 0;
@@ -350,9 +421,9 @@
           lastScroll = currentScroll <= 0 ? 0 : currentScroll;
         });
       }
+
     });
   </script>
 </body>
-
 
 </html>
